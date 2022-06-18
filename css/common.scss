@@ -1,0 +1,261 @@
+:root {
+  --Blue1: #46A6FF;
+  --Blue2: #91CAFF;
+  --Blue3: #3784CC;
+  --Blue4: #225380;
+  --Blue5: #496580;
+  --GrayStroke1: #CFCFCF;
+  --Gray2: #A4A4A4;
+  --Gray3: #767676;
+  --Gray4: #767676;
+  --Gra5: #414141;
+  --textColor: #ECECEC;
+  --inputColor: #EBEBEB;
+  --BlackBG2: #282828;
+  --MainBlackBG: #1E1E1E;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #1E1E1E;
+  color: #ECECEC;
+  font-family: 'Overpass', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+}
+
+.apr-container {
+  width: 66%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+h1, .apr-h1 {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 140%;
+}
+
+h2, .apr-h2 {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+}
+
+h3, .apr-h3 {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 160%;
+}
+
+h4, .apr-h4 {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.apr-t4 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.apr-t3 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+}
+
+.apr-t2 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+}
+
+.apr-t1 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 160%;
+}
+
+a {
+  text-decoration: underline;
+  color: #91CAFF;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #B3DAFF;
+  }
+
+  &:active {
+    color: #3784CC;
+  }
+
+  &[aria-disabled="true"] {
+    color: #A4A4A4;
+  }
+
+  &[aria-invalid="true"] {
+    color: #EC6060;
+  }
+}
+
+select,
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid;
+  outline: none;
+  padding: 20px 40px;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: #91CAFF;
+  }
+
+  &:focus {
+    border-color: #3784CC;
+  }
+
+  &:disabled {
+    color: #A4A4A4;
+    border-color: currentColor;
+  }
+
+  &:invalid {
+    color: #EC6060;
+    border-color: currentColor;
+  }
+}
+
+button {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 20px 40px;
+
+  &[type="submit"] {
+    color: #FFFFFF;
+    background: #46A6FF;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #77BDFF;
+    }
+
+    &:focus {
+      background: #3784CC;
+    }
+
+    &:disabled {
+      background: #A4A4A4;
+    }
+
+    &[aria-invalid="true"] {
+      background: #EC6060;
+    }
+  }
+
+  &[type="button"] {
+    background: transparent;
+    color: #46A6FF;
+    padding: 19px 39px;
+    border: 1px solid;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #77BDFF;
+    }
+
+    &:active {
+      color: #3784CC;
+    }
+
+    &:disabled,
+    &[aria-disabled="true"] {
+      color: #A4A4A4;
+    }
+
+    &[aria-invalid="true"] {
+      color: #EC6060;
+    }
+  }
+}
+
+.apr-menu {
+  &, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.apr-address {
+  color: #ECECEC;
+  text-decoration: none;
+  display: flex;
+
+  &::before {
+    content: "";
+    flex-shrink: 0;
+    margin-right: 10px;
+    width: 18px;
+    height: 22px;
+    background: url("../img/point.svg") 0 0 no-repeat;
+  }
+}
+
+.apr-mail {
+  color: #ECECEC;
+  text-decoration: none;
+  display: flex;
+
+  &::before {
+    content: "";
+    flex-shrink: 0;
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    background: url("../img/at.svg") 0 0 no-repeat;
+  }
+}
+
+.apr-phone {
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.apr-social {
+  font-size: 0;
+  line-height: 0;
+
+  &[href^="//vk.com/"] {
+    background: url("../img/vk.svg") 0 0 no-repeat;
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+  }
+
+  &[href^="//youtube.com/"] {
+    background: url("../img/yt.svg") 0 0 no-repeat;
+    display: inline-block;
+    width: 34px;
+    height: 27px;
+  }
+}
