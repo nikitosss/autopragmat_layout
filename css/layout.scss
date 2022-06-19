@@ -278,7 +278,7 @@
     display: flex;
     gap: 60px;
 
-    @include media('tablet') {
+    @include media('pc') {
       flex-direction: column;
       gap: 20px;
     }

@@ -1,6 +1,7 @@
 $breakpoints: (
   'mobile': 'max-width: 767px',
-  'tablet': 'max-width: 1200px',
+  'tablet': 'max-width: 1023px',
+  'pc': 'max-width: 1279px',
 ) !default;
 
 @mixin media($type) {
