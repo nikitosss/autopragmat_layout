@@ -25,65 +25,72 @@ body {
   font-family: "Overpass", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  line-height: 160%;
+  line-height: 1.6;
 }
 
 .apr-container {
-  width: 66%;
   max-width: 1280px;
   margin: 0 auto;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+@media (max-width: 767px) {
+  .apr-container {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
 }
 
 h1, .apr-h1 {
   font-family: "Exo 2", sans-serif;
   font-weight: 500;
   font-size: 40px;
-  line-height: 140%;
+  line-height: 1.4;
 }
 
 h2, .apr-h2 {
   font-family: "Exo 2", sans-serif;
   font-weight: 400;
   font-size: 35px;
-  line-height: 130%;
+  line-height: 1.3;
 }
 
 h3, .apr-h3 {
   font-family: "Exo 2", sans-serif;
   font-weight: 400;
   font-size: 22px;
-  line-height: 160%;
+  line-height: 1.6;
 }
 
 h4, .apr-h4 {
   font-family: "Exo 2", sans-serif;
   font-weight: 400;
   font-size: 20px;
-  line-height: 150%;
+  line-height: 1.5;
 }
 
 .apr-t4 {
   font-weight: 500;
   font-size: 18px;
-  line-height: 150%;
+  line-height: 1.5;
 }
 
 .apr-t3 {
   font-weight: 400;
   font-size: 16px;
-  line-height: 160%;
+  line-height: 1.6;
 }
 
 .apr-t2 {
   font-weight: 400;
   font-size: 14px;
-  line-height: 160%;
+  line-height: 1.6;
 }
 
 .apr-t1 {
   font-weight: 400;
   font-size: 12px;
-  line-height: 160%;
+  line-height: 1.6;
 }
 
 a {
@@ -99,15 +106,18 @@ a:active {
 }
 a[aria-disabled=true] {
   color: #A4A4A4;
+  pointer-events: none;
 }
 a[aria-invalid=true] {
   color: #EC6060;
 }
 
-select,
-input[type=text],
-input[type=email],
-input[type=tel] {
+.apr-select,
+.apr-input {
+  font-family: "Overpass", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
   background: transparent;
   color: #FFFFFF;
   border: 1px solid;
@@ -115,79 +125,114 @@ input[type=tel] {
   padding: 20px 40px;
   transition: border-color 0.2s ease;
 }
-select:hover,
-input[type=text]:hover,
-input[type=email]:hover,
-input[type=tel]:hover {
+@media (max-width: 767px) {
+  .apr-select,
+.apr-input {
+    font-size: 12px;
+  }
+}
+.apr-select::placeholder,
+.apr-input::placeholder {
+  color: currentColor;
+  opacity: 1;
+}
+.apr-select:hover,
+.apr-input:hover {
   border-color: #91CAFF;
 }
-select:focus,
-input[type=text]:focus,
-input[type=email]:focus,
-input[type=tel]:focus {
+.apr-select:focus,
+.apr-input:focus {
   border-color: #3784CC;
 }
-select:disabled,
-input[type=text]:disabled,
-input[type=email]:disabled,
-input[type=tel]:disabled {
+.apr-select:disabled,
+.apr-input:disabled {
   color: #A4A4A4;
   border-color: currentColor;
 }
-select:invalid,
-input[type=text]:invalid,
-input[type=email]:invalid,
-input[type=tel]:invalid {
+.apr-select[aria-invalid=true],
+.apr-input[aria-invalid=true] {
   color: #EC6060;
   border-color: currentColor;
 }
 
-button {
+.apr-select {
+  padding: 19px 39px;
+}
+.apr-select option {
+  background: #1E1E1E;
+  color: #FFFFFF;
+}
+
+.apr-button {
   font-family: "Exo 2", sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 160%;
+  line-height: 1.6;
   white-space: nowrap;
   cursor: pointer;
   border: none;
   outline: none;
   padding: 20px 40px;
 }
-button[type=submit] {
+@media (max-width: 767px) {
+  .apr-button {
+    font-size: 14px;
+  }
+}
+.apr-button:disabled {
+  pointer-events: none;
+}
+.apr-button[type=submit] {
   color: #FFFFFF;
   background: #46A6FF;
   transition: background 0.2s ease;
 }
-button[type=submit]:hover {
+.apr-button[type=submit]:hover {
   background: #77BDFF;
 }
-button[type=submit]:focus {
+.apr-button[type=submit]:focus {
   background: #3784CC;
 }
-button[type=submit]:disabled {
+.apr-button[type=submit]:disabled {
   background: #A4A4A4;
 }
-button[type=submit][aria-invalid=true] {
+.apr-button[type=submit][aria-invalid=true] {
   background: #EC6060;
 }
-button[type=button] {
+.apr-button[type=button] {
   background: transparent;
   color: #46A6FF;
   padding: 19px 39px;
   border: 1px solid;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
-button[type=button]:hover {
+.apr-button[type=button]:hover {
   color: #77BDFF;
 }
-button[type=button]:active {
+.apr-button[type=button]:active {
   color: #3784CC;
 }
-button[type=button]:disabled, button[type=button][aria-disabled=true] {
+.apr-button[type=button]:disabled, .apr-button[type=button][aria-disabled=true] {
   color: #A4A4A4;
 }
-button[type=button][aria-invalid=true] {
+.apr-button[type=button][aria-invalid=true] {
   color: #EC6060;
+}
+.apr-button.apr-request {
+  width: 210px;
+  padding: 14px;
+}
+.apr-button.apr-pay {
+  width: 230px;
+  padding: 14px;
+  color: #FFFFFF;
+  border-color: #A4A4A4;
+}
+.apr-button.apr-pay:hover {
+  border-color: currentColor;
+}
+.apr-button.apr-pay:active {
+  border-color: currentColor;
 }
 
 .apr-menu, .apr-menu ul {
@@ -200,6 +245,7 @@ button[type=button][aria-invalid=true] {
   color: #ECECEC;
   text-decoration: none;
   display: flex;
+  white-space: nowrap;
 }
 .apr-address::before {
   content: "";
@@ -228,11 +274,17 @@ button[type=button][aria-invalid=true] {
   font-weight: 700;
   color: #FFFFFF;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .apr-social {
   font-size: 0;
   line-height: 0;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.apr-social:hover {
+  opacity: 1;
 }
 .apr-social[href^="//vk.com/"] {
   background: url("../img/vk.svg") 0 0 no-repeat;

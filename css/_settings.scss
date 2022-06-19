@@ -1,0 +1,10 @@
+$breakpoints: (
+  'mobile': 'max-width: 767px',
+  'tablet': 'max-width: 1200px',
+) !default;
+
+@mixin media($type) {
+  @media (#{map-get($breakpoints, $type)}) {
+    @content;
+  }
+}

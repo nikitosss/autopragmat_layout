@@ -1,5 +1,15 @@
+@import "_settings";
+
 .apr-header {
   padding: 22px 0;
+
+  @include media('tablet') {
+    padding: 18px 0;
+  }
+
+  @include media('mobile') {
+    padding: 14px 0;
+  }
 
   &__inner {
     display: flex;
@@ -9,17 +19,39 @@
   }
 
   &__logo {
-    width: 0;
     display: flex;
     align-items: center;
     gap: 20px;
     text-transform: lowercase;
-    font-size: 12px;
-    line-height: 150%;
+    line-height: 1.5;
+
+    @include media('tablet') {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+
+    @include media('mobile') {
+      gap: 2px;
+    }
 
     a {
       font-size: 0;
       line-height: 0;
+    }
+
+    span {
+      width: 0;
+      font-size: 12px;
+
+      @include media('tablet') {
+        width: auto;
+      }
+
+      @include media('mobile') {
+        width: 0;
+        font-size: 7px;
+      }
     }
 
     img {
@@ -27,19 +59,53 @@
     }
   }
 
-  &__contacts {
-    margin-left: auto;
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     text-align: right;
+
+    @include media('mobile') {
+      display: none;
+    }
+
+    .apr-call {
+      .apr-phone {
+        font-size: 18px;
+
+        @include media('tablet') {
+          font-size: 16px;
+        }
+      }
+
+      .apr-work_time {
+        font-size: 14px;
+
+        @include media('tablet') {
+          font-size: 12px;
+        }
+      }
+    }
   }
 
   &__menu {
     display: flex;
     gap: 20px;
+    padding-top: 8px;
+
+    @include media('tablet') {
+      justify-content: center;
+      padding-top: 30px;
+    }
+
+    @include media('mobile') {
+      display: none;
+    }
 
     ul {
       position: absolute;
       top: 100%;
-      left: 0;
+      left: -20px;
       background: #1E1E1E;
       border: 1px solid #767676;
       padding: 20px;
@@ -53,12 +119,22 @@
     & > li {
       position: relative;
       display: inline-flex;
+      white-space: nowrap;
 
       & > a {
         position: relative;
         text-decoration: none;
         padding-bottom: 11px;
         color: #EBEBEB;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 5px;
+          left: 0;
+          width: 0;
+          border-bottom: 3px solid;
+        }
       }
 
       &:hover {
@@ -70,15 +146,27 @@
           color: #46A6FF;
 
           &::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
             width: 100%;
-            border-bottom: 3px solid;
+            transition: width 0.5s ease;
           }
         }
       }
+    }
+  }
+
+  &__burger {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0;
+    cursor: pointer;
+    display: none;
+    width: 32px;
+    height: 25px;
+    background: url("../img/burger.svg") 0 0 / 32px 25px no-repeat;
+
+    @include media('mobile') {
+      display: block;
     }
   }
 }
@@ -90,6 +178,15 @@
     display: flex;
     gap: 60px;
     padding: 50px 0;
+
+    @include media('tablet') {
+      gap: 50px;
+    }
+
+    @include media('mobile') {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__left {
@@ -116,6 +213,10 @@
   }
 
   &__agreements {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+
     a {
       color: #767676;
       text-decoration: none;
@@ -127,16 +228,59 @@
   }
 
   &__menu {
+    width: 100%;
     columns: 2;
     column-gap: 60px;
+    font-size: 14px;
+
+    @include media('tablet') {
+      columns: auto;
+      font-size: 12px;
+    }
+
+    @include media('mobile') {
+      width: auto;
+      columns: 2;
+      column-gap: 40px;
+    }
 
     li {
       padding: 7px 0;
-    }
 
-    a {
-      text-decoration: none;
-      color: #EBEBEB;
+      a {
+        position: relative;
+        padding-bottom: 2px;
+        text-decoration: none;
+        color: #EBEBEB;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          border-bottom: 2px solid;
+        }
+
+        &:hover {
+          color: #46A6FF;
+
+          &::after {
+            width: 100%;
+            transition: width 0.5s ease;
+          }
+        }
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    gap: 60px;
+
+    @include media('tablet') {
+      flex-direction: column;
+      gap: 20px;
     }
   }
 
@@ -147,7 +291,7 @@
     gap: 15px;
   }
 
-  &__right {
+  &__side {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -161,14 +305,34 @@
     gap: 15px;
     font-size: 0;
     line-height: 0;
+
+    @include media('tablet') {
+      align-self: flex-start;
+    }
+
+    @include media('mobile') {
+      align-self: center;
+    }
   }
 
   &__map {
-    width: 100%;
-    height: 250px;
+    position: relative;
+    padding-bottom: 40%;
 
-    .ymaps-layers-pane {
-      filter: grayscale(100%);
+    @include media('mobile') {
+      padding-bottom: 56%;
+    }
+
+    #footer_map {
+      position: absolute;
+      left: 0;
+      top:0;
+      right: 0;
+      bottom: 0;
+
+      * {
+        filter: grayscale(100%);
+      }
     }
   }
 }

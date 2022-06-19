@@ -31,11 +31,14 @@
       </a>
       <span>Cервис&nbsp;по&nbsp;подбору автомобилей&nbsp;с&nbsp;пробегом</span>
     </div>
-    <div class="apr-header__contacts apr-call">
-      <a class="apr-phone apr-t3" href="tel:+74212929150">+7 (421) 292–91–50</a>
-      <div class="apr-t1">с 10:00 до 20:00 без выходных</div>
+    <div class="apr-header__right">
+      <div class="apr-call">
+        <a class="apr-phone" href="tel:+74212929150">+7 (421) 292–91–50</a>
+        <div class="apr-work_time">с&nbsp;10:00 до&nbsp;20:00 без выходных</div>
+      </div>
+      <button class="apr-button apr-request apr-t2" type="button">Оставить заявку</button>
     </div>
-    <button type="button">Оставить заявку</button>
+    <button class="apr-header__burger" type="button">☰</button>
   </div>
   <ul class="apr-header__menu apr-menu apr-t3">
     <li>
@@ -79,38 +82,38 @@
   </p>
   <p>
     <label>
-      <input type="text" placeholder="Номер телефона"/>
+      <input class="apr-input" type="text" placeholder="Номер телефона"/>
     </label>
     <label>
-      <input type="text" placeholder="Номер телефона" disabled/>
+      <input class="apr-input" type="text" placeholder="Номер телефона" disabled/>
     </label>
     <label>
-      <input type="text" placeholder="Номер телефона" aria-invalid="true"/>
+      <input class="apr-input" type="text" placeholder="Номер телефона" aria-invalid="true"/>
     </label>
   </p>
   <p>
-    <button type="submit">Подбор автомобиля</button>
-    <button type="submit" disabled>Подбор автомобиля</button>
-    <button type="submit" aria-invalid="true">Подбор автомобиля</button>
+    <button class="apr-button" type="submit">Подбор автомобиля</button>
+    <button class="apr-button" type="submit" disabled>Подбор автомобиля</button>
+    <button class="apr-button" type="submit" aria-invalid="true">Подбор автомобиля</button>
   </p>
   <p>
-    <button type="button">Подбор автомобиля</button>
-    <button type="button" disabled>Подбор автомобиля</button>
-    <button type="button" aria-invalid="true">Подбор автомобиля</button>
+    <button class="apr-button" type="button">Подбор автомобиля</button>
+    <button class="apr-button" type="button" disabled>Подбор автомобиля</button>
+    <button class="apr-button" type="button" aria-invalid="true">Подбор автомобиля</button>
   </p>
   <form>
     <p>
       <label>
-        <input type="tel" placeholder="Номер телефона" required/>
+        <input class="apr-input" type="tel" placeholder="Номер телефона" name="phone" required/>
       </label>
       <label>
-        <input type="text" placeholder="Ваше имя" required/>
+        <input class="apr-input" type="text" placeholder="Ваше имя" name="name" required/>
       </label>
       <label>
-        <input type="email" placeholder="Электронная почта" required/>
+        <input class="apr-input" type="email" placeholder="Электронная почта" name="email" required/>
       </label>
       <label>
-        <select required>
+        <select class="apr-select" name="model" required>
           <option value="">Выбрать модель</option>
           <option value="Audi">Audi (34)</option>
           <option value="Mercedes">Mercedes (127)</option>
@@ -131,13 +134,13 @@
         </a>
         <span>Cервис по подбору автомобилей с пробегом</span>
       </div>
-      <button type="button" aria-disabled="true">Оплатить заказ</button>
+      <button class="apr-button apr-pay apr-t2" type="button">Оплатить заказ</button>
       <div class="apr-footer__agreements">
         <a href="/privacy">Политика обработки персональных данных</a>
         <a href="/agreement">Пользовательское соглашение</a>
       </div>
     </div>
-    <ul class="apr-footer__menu apr-menu apr-t2">
+    <ul class="apr-footer__menu apr-menu">
       <li><a href="#">Услуги</a></li>
       <li><a href="#">Подбор автомобиля</a></li>
       <li><a href="#">Выездная диагностика</a></li>
@@ -147,24 +150,31 @@
       <li><a href="#">Команда</a></li>
       <li><a href="#">Калькулятор</a></li>
     </ul>
-    <div class="apr-footer__contacts">
-      <div class="apr-t2">Контакты</div>
-      <a class="apr-address" href="geo:55.812467,37.632546">Москва. Проезд Ольминского, дом 3а, строение 3, офис 403</a>
-      <a class="apr-mail" href="mailto:asafev.zakaz@mail.ru">asafev.zakaz@mail.ru</a>
-    </div>
     <div class="apr-footer__right">
-      <button type="button">Оставить заявку</button>
-      <div class="apr-call">
-        <a class="apr-phone apr-t4" href="tel:+74212929150">+7 (421) 292–91–50</a>
-        <div class="apr-t2">с 10:00 до 20:00 без выходных</div>
+      <div class="apr-footer__contacts">
+        <div class="apr-t2">Контакты</div>
+        <a class="apr-address" href="geo:55.81242804203617,37.631908033779695">
+          Москва. Проезд Ольминского,<br />
+          дом 3а, строение 3, офис 403
+        </a>
+        <a class="apr-mail" href="mailto:asafev.zakaz@mail.ru">asafev.zakaz@mail.ru</a>
       </div>
-      <ul class="apr-footer__socials apr-menu">
-        <li><a class="apr-social" href="//vk.com/autopragmat" target="_blank">VK</a></li>
-        <li><a class="apr-social" href="//youtube.com/c/AsafievStas" target="_blank">YouTube</a></li>
-      </ul>
+      <div class="apr-footer__side">
+        <button class="apr-button apr-request apr-t2" type="button">Оставить заявку</button>
+        <div class="apr-call">
+          <a class="apr-phone apr-t4" href="tel:+74212929150">+7 (421) 292–91–50</a>
+          <div class="apr-t2">с&nbsp;10:00 до&nbsp;20:00 без выходных</div>
+        </div>
+        <ul class="apr-footer__socials apr-menu">
+          <li><a class="apr-social" href="//vk.com/autopragmat" target="_blank">VK</a></li>
+          <li><a class="apr-social" href="//youtube.com/c/AsafievStas" target="_blank">YouTube</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="apr-footer__map" id="footer_map"></div>
+  <div class="apr-footer__map">
+    <div id="footer_map"></div>
+  </div>
 </footer>
 </body>
 </html>

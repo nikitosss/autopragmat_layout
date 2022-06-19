@@ -1,0 +1,23 @@
+<svg viewBox="0 0 60 68" fill="#f33" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter x="-21.7%" y="-15.4%" width="143.5%" height="138.5%" filterUnits="objectBoundingBox" id="a">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+      <feOffset dy="2"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope=".3"/>
+      </feComponentTransfer>
+    </filter>
+    <path d="M23.5 51.5a.5.5 0 0 1-.5.5.5.5 0 0 1-.5-.5 6.3 6.3 0 0 0-4.8-6.1 23 23 0 1 1 10.6 0c-3 1-4.6 3-4.8 6.1z"
+          id="b"/>
+  </defs>
+  <g transform="translate(7 5)">
+    <use filter="url(#a)" xlink:href="#b"/>
+    <use xlink:href="#b"/>
+  </g>
+  <g fill="#fff">
+    <path fill-rule="evenodd"
+          d="M39 35.4v-5.7c0-.4 0-.8-.2-1.2l-1.6-6a2.9 2.9 0 0 0-2.4-2.2 34.1 34.1 0 0 0-9.6 0 2.9 2.9 0 0 0-2.4 2.1l-1.6 6.1-.2 1.2v5.7c0 .3.3.6.6.6h2.3a.6.6 0 0 0 .6-.4L25 34h10l.5 1.6a.6.6 0 0 0 .6.4h2.3c.3 0 .6-.3.6-.6zm-4.4-14.1c.7 0 1.3.6 1.5 1.3l1 3.9a3.4 3.4 0 0 0-1.2-.4 41.1 41.1 0 0 0-13 .4l1-3.9c.2-.7.7-1.2 1.5-1.3 1.5-.2 2.3-.3 4.6-.3s3 0 4.6.3zm1.9 9.7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM25 29.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+    <path
+      d="M40.7 25c.3 0 .6.3.6.6v.5a1.2 1.2 0 0 1-1 1.2h-.6a.6.6 0 0 1-.6-.4l-.3-1.1a.6.6 0 0 1 .6-.8h1.3zm-21.4 0c-.3 0-.6.3-.6.6v.5c0 .6.5 1.1 1 1.2h.6a.6.6 0 0 0 .6-.4l.3-1.1a.6.6 0 0 0-.6-.8h-1.3z"/>
+  </g>
+</svg>
