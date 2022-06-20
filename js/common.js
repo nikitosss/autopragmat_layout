@@ -4,14 +4,20 @@ function footerMapInit() {
     var footerMap = new ymaps.Map('footer_map', {
       center: coord,
       zoom: 16,
+      controls: [],
     });
-    var placemark = new ymaps.Placemark(coord, null, {
-      iconImageHref: '../img/map_point.svg',
+    var placemark = new ymaps.Placemark(footerMap.getCenter(), {
+      balloonContentHeader: 'Автопрагмат',
+      balloonContentBody : 'Москва. Проезд Ольминского, <br />дом 3а, строение 3, офис 403',
+    }, {
+      iconLayout: 'default#image',
+      iconImageHref: 'img/map_point.svg',
       iconImageSize: [60, 68],
       iconImageOffset: [-30, -68],
     })
 
     footerMap.geoObjects.add(placemark);
+    footerMap.behaviors.disable('drag');
   });
 }
 
