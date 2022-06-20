@@ -1,7 +1,5 @@
-document.addEventListener('DOMContentLoaded', function (event) {
-  ymaps.ready(init);
-
-  function init() {
+function footerMapInit() {
+  ymaps.ready(function () {
     var coord = [55.81242804203617, 37.631908033779695];
     var footerMap = new ymaps.Map('footer_map', {
       center: coord,
@@ -13,7 +11,22 @@ document.addEventListener('DOMContentLoaded', function (event) {
       iconImageOffset: [-30, -68],
     })
 
-    footerMap.geoObjects
-      .add(placemark)
-  }
+    footerMap.geoObjects.add(placemark);
+  });
+}
+
+function burgerInit() {
+  $('.js-burger-open').click(function () {
+    $('.apr-burger').addClass('open');
+    $('body').css( 'overflow', 'hidden');
+  });
+  $('.js-burger-close').click(function () {
+    $('.apr-burger').removeClass('open');
+    $('body').css( 'overflow', 'visible');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  footerMapInit();
+  burgerInit();
 });

@@ -31,13 +31,13 @@ body {
 .apr-container {
   max-width: 1280px;
   margin: 0 auto;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media (max-width: 767px) {
   .apr-container {
-    border-left-width: 16px;
-    border-right-width: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
@@ -219,11 +219,11 @@ a[aria-invalid=true] {
   color: #EC6060;
 }
 .apr-button.apr-request {
-  width: 210px;
+  min-width: 210px;
   padding: 14px;
 }
 .apr-button.apr-pay {
-  width: 230px;
+  min-width: 230px;
   padding: 14px;
   color: #FFFFFF;
   border-color: #A4A4A4;
@@ -239,6 +239,28 @@ a[aria-invalid=true] {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.apr-menu-item {
+  position: relative;
+  padding-bottom: 2px;
+  text-decoration: none;
+  color: #EBEBEB;
+}
+.apr-menu-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-bottom: 2px solid;
+}
+.apr-menu-item:hover {
+  color: #46A6FF;
+}
+.apr-menu-item:hover::after {
+  width: 100%;
+  transition: width 0.5s ease;
 }
 
 .apr-address {

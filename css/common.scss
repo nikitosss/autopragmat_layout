@@ -31,19 +31,7 @@ body {
 }
 
 .apr-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  border: {
-    left: 20px solid transparent;
-    right: 20px solid transparent;
-  };
-
-  @include media('mobile') {
-    border: {
-      left-width: 16px;
-      right-width: 16px;
-    };
-  }
+  @include container();
 }
 
 h1, .apr-h1 {
@@ -238,12 +226,12 @@ a {
   }
 
   &.apr-request {
-    width: 210px;
+    min-width: 210px;
     padding: 14px;
   }
 
   &.apr-pay {
-    width: 230px;
+    min-width: 230px;
     padding: 14px;
     color: #FFFFFF;
     border-color: #A4A4A4;
@@ -263,6 +251,31 @@ a {
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+}
+
+.apr-menu-item {
+  position: relative;
+  padding-bottom: 2px;
+  text-decoration: none;
+  color: #EBEBEB;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    border-bottom: 2px solid;
+  }
+
+  &:hover {
+    color: #46A6FF;
+
+    &::after {
+      width: 100%;
+      transition: width 0.5s ease;
+    }
   }
 }
 
