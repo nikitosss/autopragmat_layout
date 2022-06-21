@@ -321,6 +321,7 @@
 }
 .apr-footer__map #footer_map * {
   filter: grayscale(100%);
+  touch-action: auto;
 }
 
 .apr-burger {

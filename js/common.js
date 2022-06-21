@@ -21,6 +21,7 @@ function footerMapInit() {
       size: "small",
     });
     footerMap.behaviors.disable('scrollZoom');
+    footerMap.behaviors.disable('drag');
   });
 }
 
