@@ -4,11 +4,11 @@ function footerMapInit() {
     var footerMap = new ymaps.Map('footer_map', {
       center: coord,
       zoom: 16,
-      controls: [],
+      controls: ["fullscreenControl"],
     });
     var placemark = new ymaps.Placemark(footerMap.getCenter(), {
-      balloonContentHeader: 'Автопрагмат',
-      balloonContentBody : 'Москва. Проезд Ольминского, <br />дом 3а, строение 3, офис 403',
+      balloonContentHeader: $('.apr-logo').attr('alt'),
+      balloonContentBody : $('.apr-address').html(),
     }, {
       iconLayout: 'default#image',
       iconImageHref: 'img/map_point.svg',
@@ -17,7 +17,10 @@ function footerMapInit() {
     })
 
     footerMap.geoObjects.add(placemark);
-    footerMap.behaviors.disable('drag');
+    footerMap.controls.add('zoomControl', {
+      size: "small",
+    });
+    footerMap.behaviors.disable('scrollZoom');
   });
 }
 
@@ -32,7 +35,22 @@ function burgerInit() {
   });
 }
 
+function swiperInit() {
+  var swiper = new Swiper('.apr-swiper', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function (event) {
   footerMapInit();
   burgerInit();
+  swiperInit();
 });

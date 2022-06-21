@@ -3,7 +3,7 @@
     background: #1E1E1E;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 2;
   }
 }
 .apr-header__inner {
@@ -119,7 +119,7 @@
   background: #1E1E1E;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 2;
 }
 .apr-nav__inner {
   display: flex;
@@ -190,6 +190,7 @@
 }
 
 .apr-footer {
+  margin-top: 50px;
   border-top: 1px solid #414141;
 }
 .apr-footer__inner {
@@ -320,7 +321,6 @@
 }
 .apr-footer__map #footer_map * {
   filter: grayscale(100%);
-  touch-action: auto;
 }
 
 .apr-burger {
@@ -330,7 +330,7 @@
   right: 0;
   bottom: 0;
   background: #282828;
-  z-index: 1;
+  z-index: 3;
   overflow-y: auto;
   transform: translateX(-100%);
   transition: transform 0.2s ease;

@@ -10,6 +10,12 @@ $breakpoints: (
   }
 }
 
+@mixin selectNone() {
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 @mixin container() {
   max-width: 1280px;
   margin: 0 auto;
