@@ -25,15 +25,26 @@ function footerMapInit() {
   });
 }
 
-function burgerInit() {
-  $('.js-burger-open').click(function () {
-    $('.apr-burger').addClass('open');
-    $('body').css( 'overflow', 'hidden');
+function modalInit() {
+  $('[data-open-modal]').click(function () {
+    var id = $(this).data('open-modal');
+    $('#' + id).attr('aria-modal', 'true');
+    $('html').attr('aria-modal', 'true');
   });
-  $('.js-burger-close').click(function () {
-    $('.apr-burger').removeClass('open');
-    $('body').css( 'overflow', 'visible');
+  $('[data-close-modal]').click(function () {
+    var id = $(this).data('close-modal');
+    $('#' + id).attr('aria-modal', 'false');
+    $('html').attr('aria-modal', 'false');
   });
+  $(document).on('keyup', function(e) {
+    if (e.key === 'Escape') {
+      $('[aria-modal]').attr('aria-modal', 'false');
+    }
+  });
+  document.documentElement.style.setProperty(
+    '--scroll-bar-width',
+    `${window.innerWidth - document.documentElement.clientWidth}px`
+  );
 }
 
 function swiperInit() {
@@ -52,6 +63,6 @@ function swiperInit() {
 
 document.addEventListener('DOMContentLoaded', function (event) {
   footerMapInit();
-  burgerInit();
+  modalInit();
   swiperInit();
 });
