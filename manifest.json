@@ -1,0 +1,21 @@
+{
+  "name": "Автопрагмат",
+  "short_name": "Автопрагмат",
+  "theme_color": "#1E1E1E",
+  "background_color": "#1E1E1E",
+  "display": "minimal-ui",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

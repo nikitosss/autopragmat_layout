@@ -63,6 +63,7 @@
 
     img {
       width: 210px;
+      height: auto;
 
       @include media('mobile') {
         width: 118px;
@@ -237,6 +238,7 @@
 
     img {
       width: 230px;
+      height: auto;
     }
   }
 
