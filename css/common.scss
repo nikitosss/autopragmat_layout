@@ -421,8 +421,12 @@ a {
 }
 
 .apr-swiper {
-  max-width: 500px;
   @include selectNone;
+
+  img {
+    max-width: 100%;
+    object-fit: contain;
+  }
 }
 
 .apr-modal {

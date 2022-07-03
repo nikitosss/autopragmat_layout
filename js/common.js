@@ -1,3 +1,16 @@
+window.$loadScript = (url, async = false, defer = false) =>
+  new Promise((resolve, reject) => {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = async;
+    script.defer = defer;
+    script.onload = resolve;
+    script.onerror = reject;
+    script.src = url;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(script, s);
+  });
+
 function footerMapInit() {
   ymaps.ready(function () {
     var coord = [55.81242804203617, 37.631908033779695];
@@ -62,7 +75,15 @@ function swiperInit() {
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  footerMapInit();
-  modalInit();
-  swiperInit();
+  window.$loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', true).then(function () {
+    modalInit();
+
+    window.$loadScript('https://unpkg.com/swiper@8/swiper-bundle.min.js', true).then(function () {
+      swiperInit();
+    });
+
+    window.$loadScript('https://api-maps.yandex.ru/2.1/?lang=ru_RU', true).then(function () {
+      footerMapInit();
+    });
+  });
 });
