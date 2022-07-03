@@ -36,6 +36,32 @@ body {
   line-height: 1.6;
 }
 
+.apr-img {
+  max-width: 100%;
+  height: auto;
+
+  &--contain {
+    object-fit: contain;
+  }
+
+  &--cover {
+    object-fit: cover;
+  }
+}
+
+.apr-pic {
+  display: inline-block;
+  overflow: hidden;
+
+  .apr-img {
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
 .apr-container {
   @include container();
 }
@@ -160,7 +186,7 @@ a {
     pointer-events: none;
   }
 
-  &[type="submit"] {
+  &--type1 {
     color: #FFFFFF;
     background: #46A6FF;
     transition: background 0.2s ease;
@@ -182,7 +208,7 @@ a {
     }
   }
 
-  &[type="button"] {
+  &--type2 {
     background: transparent;
     color: #46A6FF;
     padding: 19px 39px;
@@ -252,12 +278,12 @@ a {
   line-height: 1.6;
 }
 
-.apr-menu {
-  &, ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+.apr-list,
+.apr-menu,
+.apr-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .apr-menu-item {
@@ -422,11 +448,8 @@ a {
 
 .apr-swiper {
   @include selectNone;
-
-  img {
-    max-width: 100%;
-    object-fit: contain;
-  }
+  font-size: 0;
+  line-height: 0;
 }
 
 .apr-modal {

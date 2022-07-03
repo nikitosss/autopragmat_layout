@@ -7,7 +7,7 @@
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-  <link rel="manifest" href="manifest.json">
+  <!--<link rel="manifest" href="manifest.json">-->
   <title>new autopragmat</title>
   <meta name="description" content="Автопрагмат">
 
@@ -15,11 +15,12 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"></noscript>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;700&family=Exo+2:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;700&family=Exo+2:wght@400;500;700&display=swap"></noscript>
-  <link rel="preload" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://unpkg.com/swiper@8.2.6/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"></noscript>
 
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/home.css">
 
   <script src="js/common.js" type="text/javascript"></script>
 </head>
@@ -37,7 +38,7 @@
         <a class="apr-phone" href="tel:+74212929150">+7 (421) 292–91–50</a>
         <div class="apr-work_time">с&nbsp;10:00 до&nbsp;20:00 без выходных</div>
       </div>
-      <button class="apr-button apr-request apr-t2" type="button" data-open-modal="request_form">Оставить заявку</button>
+      <button class="apr-button apr-button--type2 apr-request apr-t2" type="button" data-open-modal="request_form">Оставить заявку</button>
     </div>
     <div class="apr-header__burger" role="button" data-open-modal="burger">☰</div>
   </div>
@@ -61,99 +62,191 @@
     <li><a href="#">Контакты</a></li>
   </ul>
 </nav>
-<main class="apr-container">
-  <h1>Заголовок H1</h1>
-  <h2>Заголовок H2</h2>
-  <h3>Заголовок H3</h3>
-  <h4>Заголовок H4</h4>
-  <p class="apr-t4" style="font-weight: bold">Текст Т4 Bold</p>
-  <p class="apr-t4">Текст Т4</p>
-  <p class="apr-t3" style="font-weight: bold">Текст Т3 Bold</p>
-  <p class="apr-t3">Текст Т3</p>
-  <p class="apr-t2">Текст Т2</p>
-  <p class="apr-t1">Текст Т1</p>
-  <p>
-    Имеет хорошую читаемость. За счёт своей формы подходит к авто тематике, а так же часто в ней используется, что
-    хорошо откликается с паттернами авто сайта у посетителя. Хорошо погружает в атмосферу. Хорошо смотрится в виде
-    крупных заголовков и нормально читается при обычном наборном тексте. Недостаток: нет ярких рубленых углов. Но точно
-    ли они нужны?
-  </p>
-  <p>
-    <a href="#">Кликабельная ссылка</a>
-    <a href="#" aria-disabled="true">Не кликабельная ссылка</a>
-    <a href="#" aria-invalid="true">Ссылка с ошибкой</a>
-  </p>
-  <p>
-    <button class="apr-button" type="submit">Подбор автомобиля</button>
-    <button class="apr-button" type="submit" disabled>Подбор автомобиля</button>
-    <button class="apr-button" type="submit" aria-invalid="true">Подбор автомобиля</button>
-  </p>
-  <p>
-    <button class="apr-button" type="button">Подбор автомобиля</button>
-    <button class="apr-button" type="button" disabled>Подбор автомобиля</button>
-    <button class="apr-button" type="button" aria-invalid="true">Подбор автомобиля</button>
-  </p>
-  <p>
-    <label>
-      <input class="apr-input" type="text" placeholder="Номер телефона"/>
-    </label>
-    <label>
-      <input class="apr-input" type="text" placeholder="Номер телефона" disabled/>
-    </label>
-    <label>
-      <input class="apr-input" type="text" placeholder="Номер телефона" aria-invalid="true"/>
-    </label>
-  </p>
-  <form>
-    <p>
-      <label>
-        <input class="apr-input" type="tel" placeholder="Номер телефона" name="phone" required/>
-      </label>
-      <label>
-        <input class="apr-input" type="text" placeholder="Ваше имя" name="name" required/>
-      </label>
-      <label>
-        <input class="apr-input" type="email" placeholder="Электронная почта" name="email" required/>
-      </label>
-      <label>
-        <select class="apr-select" name="model" required>
-          <option value="">Выбрать модель</option>
-          <option value="Audi">Audi (34)</option>
-          <option value="Mercedes">Mercedes (127)</option>
-          <option value="Mazda">Mazda (64)</option>
-          <option value="BMW">BMW (58)</option>
-          <option value="Kia">Kia (29)</option>
-        </select>
-      </label>
-    </p>
-  </form>
-  <div class="apr-swiper swiper" style="max-width:500px;">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="img/pic1.webp" width="500" height="360" alt="Slide 1" loading="lazy">
-      </div>
-      <div class="swiper-slide">
-        <img src="img/pic2.webp" width="500" height="360" alt="Slide 2" loading="lazy">
-      </div>
-      <div class="swiper-slide">
-        <img src="img/pic3.webp" width="500" height="360" alt="Slide 3" loading="lazy">
+<section class="apr-first-screen">
+  <div class="apr-container">
+    <div class="apr-first-screen__left apr-first-screen__order">
+      <h1 class="apr-h1">Подберём подержанный автомобиль с гарантией и без риска</h1>
+      <button class="apr-button apr-button--type1" type="button" data-scroll-to="selection_form">
+        Заказать автоподбор
+      </button>
+      <span class="apr-t2">Мы перезвоним в течение 30 минут</span>
+    </div>
+    <div class="apr-first-screen__right">
+      <div class="apr-first-screen__swiper apr-swiper swiper" data-swiper='{
+        "speed": 1500,
+        "autoplay": {
+          "delay": 5000,
+          "disableOnInteraction": false
+        }
+      }'>
+        <div class="swiper-wrapper">
+          <a class="swiper-slide" href="#">
+            <figure class="apr-pic">
+              <img class="apr-img apr-img--cover" src="img/s1_1.webp" alt="Slide 1" loading="lazy">
+              <figcaption class="apr-t3">
+                Недавно подобрали: Hyundai Palisade<br>
+                Нажмите на фото, что прочитать кейс
+              </figcaption>
+            </figure>
+          </a>
+          <a class="swiper-slide" href="#">
+            <figure class="apr-pic">
+              <img class="apr-img apr-img--cover" src="img/s15_1.webp" alt="Slide 2" loading="lazy">
+              <figcaption class="apr-t3">
+                Fig.1 - Trulli, Puglia, Italy.
+              </figcaption>
+            </figure>
+          </a>
+          <a class="swiper-slide" href="#">
+            <figure class="apr-pic">
+              <img class="apr-img apr-img--cover" src="img/s15_2.webp" alt="Slide 3" loading="lazy">
+              <figcaption class="apr-t3">
+                Fig.1 - Trulli, Puglia, Italy.
+              </figcaption>
+            </figure>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <p class="apr-first-screen__left apr-first-screen__note apr-t2">
+      Мы поможем найти подходящую машину и тщательно проверим её перед тем, как рекомендовать к покупке: изучим
+      документы и проведём полную диагностику.
+    </p>
   </div>
-</main>
+</section>
+<section class="apr-third-screen apr-container">
+  <div class="apr-third-screen__side">
+    <h2 class="apr-third-screen__title apr-h2">Изучим рынок и найдём <br> конкретную модель</h2>
+    <ul class="apr-third-screen__list apr-list">
+      <li>Проанализируем предложения на рынке и подберем авто в нужной ценовой категории.</li>
+      <li>Если уже определились с брендом, вам поможет специалист, который отвечает за конкретное направление.</li>
+      <li>Мы работаем с BMW, Audi, Porsche, японскими и корейским брендами, европейскими и отечественными марками.</li>
+      <li>Мы регулярно отсматриваем объявления, поэтому в числе первых узнаем об интересных вариантах.</li>
+    </ul>
+  </div>
+  <picture class="apr-third-screen__img apr-pic">
+    <img class="apr-img apr-img--cover" src="img/s3_1.webp" width="509" height="348" alt="стоянка" loading="lazy"/>
+  </picture>
+</section>
+<section class="apr-fourth-screen apr-container">
+  <div class="apr-fourth-screen__head">
+    <h2 class="apr-fourth-screen__title apr-h2">Осмотрим авто, проведем <br> диагностику, выявим недостатки</h2>
+    <p class="apr-fourth-screen__note apr-t1">
+      Рассматриваем только машины с полностью <br> исправной системой пассивной безопасности
+    </p>
+  </div>
+  <ul class="apr-fourth-screen__list apr-list">
+    <li>
+      <picture class="apr-pic">
+        <img class="apr-img apr-img--cover" src="img/s4_1.webp" width="400" height="322" alt="" loading="lazy"/>
+      </picture>
+      <p>
+        Поедем на осмотр и выясним у продавца все, что нужно: проверим историю авто, настоящий пробег, состояние кузова,
+      исправность всех деталей и опишем дефекты.
+      </p>
+    </li>
+    <li>
+      <picture class="apr-pic">
+        <img class="apr-img apr-img--cover" src="img/s4_2.webp" width="400" height="322" alt="" loading="lazy"/>
+      </picture>
+      <p>
+        Найденные недостатки — повод для торга: иногда эта разница в цене делает услугу подбора бесплатной.
+      </p>
+    </li>
+    <li>
+      <picture class="apr-pic">
+        <img class="apr-img apr-img--cover" src="img/s4_3.webp" width="400" height="322" alt="" loading="lazy"/>
+      </picture>
+      <p>
+        После осмотра пришлем подробный отчёт. Не станем рекомендовать автомобиль, который требует больших вложений.
+      </p>
+    </li>
+  </ul>
+</section>
+<section class="apr-sixth-screen">
+  <div class="apr-sixth-screen__head">
+    <div class="apr-container">
+      <h2 class="apr-sixth-screen__title apr-h2">Подберём автомобиль <br> под ваши потребности</h2>
+      <p class="apr-sixth-screen__note apr-t1">
+        Ваш будущий автомобиль всего в двух шагах.<br>
+        Заполните форму, чтобы мы начали поиск.
+      </p>
+    </div>
+  </div>
+  <div id="selection_form" class="apr-sixth-screen__side">
+    <div class="apr-sixth-screen__inner">
+      <form class="apr-container">
+        <label>
+          <input class="apr-input" type="text" placeholder="Телефон" name="phone" inputmode="tel" required/>
+        </label>
+        <label>
+          <input class="apr-input" type="text" placeholder="Как к вам обращаться" name="name" maxlength="50" required/>
+        </label>
+        <label>
+          <input class="apr-input" type="text" placeholder="Электронная почта" name="email" inputmode="email" maxlength="50" required/>
+        </label>
+        <button class="apr-button apr-button--type1 apr-t4" type="submit">Оставить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+<section class="apr-twelfth-screen apr-container">
+  <h2 class="apr-twelfth-screen__title apr-h4">Гарантии</h2>
+  <ul class="apr-twelfth-screen__list apr-list">
+    <li>
+      <picture class="apr-pic">
+        <img class="apr-img apr-img--cover" src="img/s12_1.webp" width="290" height="290" alt="" loading="lazy"/>
+      </picture>
+      <h3>Работаем по договору</h3>
+      <div>
+        Заключаем договор и фиксируем в нем все параметры вашего автомобиля: марку и модель, стоимость и желаемое
+        оснащение. В 90% случаев автомобиль будет лучше, чем вы рассчитывали.
+      </div>
+    </li>
+    <li>
+      <picture class="apr-pic">
+        <img class="apr-img apr-img--cover" src="img/s12_2.webp" width="290" height="290" alt="" loading="lazy"/>
+      </picture>
+      <h3>Гарантируем исправность</h3>
+      <div>
+        У любого автомобиля после покупки могут обнаружиться дефекты — например, в узлах, которые нельзя проверить без
+        разбора. Если это произойдет в течение 2 месяцев, мы устраним все недостатки. Даже если вы в другом городе.
+      </div>
+    </li>
+    <li>
+      <picture class="apr-pic">
+        <img class="apr-img apr-img--cover" src="img/s12_3.webp" width="290" height="290" alt="" loading="lazy"/>
+      </picture>
+      <h3>Порядок с документами</h3>
+      <div>
+        Обещаем, что автомобиль не числится в угоне, не находится в залоге и не участвовал в мошеннических схемах. Вы
+        без проблем поставите его на учет, а в будущем — легко сможете продать.
+      </div>
+    </li>
+    <li>
+      <picture class="apr-pic">
+        <img class="apr-img apr-img--cover" src="img/s12_4.webp" width="290" height="290" alt="" loading="lazy"/>
+      </picture>
+      <h3>Вернем предоплату</h3>
+      <div>
+        При заключении договора мы попросим вас внести предоплату 10 000 ₽. Если в момент поиска вы решите отказаться от
+        покупки, а эксперт не успел осмотреть ни одного автомобиля, мы вернем всю предоплату.
+      </div>
+    </li>
+  </ul>
+</section>
 <footer class="apr-footer">
   <div class="apr-footer__inner apr-container apr-t1">
     <div class="apr-footer__left">
       <div class="apr-footer__logo">
         <a href="/">
-          <img src="img/logo.svg" width="230" height="24" alt="Автопрагмат"/>
+          <img src="img/logo.svg" width="230" height="24" alt="Автопрагмат" loading="lazy"/>
         </a>
         <span>Cервис по подбору автомобилей с пробегом</span>
       </div>
-      <button class="apr-button apr-pay apr-t2" type="button" data-open-modal="pay_form">Оплатить заказ</button>
+      <button class="apr-button apr-button--type2 apr-pay apr-t2" type="button" data-open-modal="pay_form">
+        Оплатить заказ
+      </button>
       <div class="apr-footer__agreements">
         <a href="/privacy">Политика обработки персональных данных</a>
         <a href="/agreement">Пользовательское соглашение</a>
@@ -179,7 +272,9 @@
         <a class="apr-mail" href="mailto:asafev.zakaz@mail.ru">asafev.zakaz@mail.ru</a>
       </div>
       <div class="apr-footer__side">
-        <button class="apr-button apr-request apr-t2" type="button" data-open-modal="request_form">Оставить заявку</button>
+        <button class="apr-button apr-button--type2 apr-request apr-t2" type="button" data-open-modal="request_form">
+          Оставить заявку
+        </button>
         <div class="apr-call">
           <a class="apr-phone apr-t4" href="tel:+74212929150">+7 (421) 292–91–50</a>
           <div class="apr-t2">с&nbsp;10:00 до&nbsp;20:00 без выходных</div>
@@ -191,9 +286,9 @@
       </div>
     </div>
   </div>
-  <div class="apr-footer__map">
-    <div id="footer_map"></div>
-  </div>
+<!--  <div class="apr-footer__map">-->
+<!--    <div id="footer_map"></div>-->
+<!--  </div>-->
 </footer>
 <div class="apr-burger" id="burger" aria-labelledby="Меню">
   <div class="apr-burger__inner apr-container">
@@ -216,8 +311,12 @@
       <li><a class="apr-menu-item" href="#">Калькулятор</a></li>
     </ul>
     <div class="apr-burger__buttons">
-      <button class="apr-button apr-request apr-t2" type="button" data-open-modal="request_form">Оставить заявку</button>
-      <button class="apr-button apr-pay apr-t2" type="button" data-open-modal="pay_form">Оплатить заказ</button>
+      <button class="apr-button apr-button--type2 apr-request apr-t2" type="button" data-open-modal="request_form">
+        Оставить заявку
+      </button>
+      <button class="apr-button apr-button--type2 apr-pay apr-t2" type="button" data-open-modal="pay_form">
+        Оплатить заказ
+      </button>
     </div>
     <div class="apr-burger__contacts">
       <div class="apr-burger__contacts-title apr-t2">Контакты</div>
@@ -242,7 +341,7 @@
       автоподбором. Вы приезжаете уже на конечный вариант, проверяете его и принимаете решение.
     </p>
     <label>
-      <input class="apr-input" type="text" placeholder="Номер телефона" name="phone" inputmode="email" required/>
+      <input class="apr-input" type="text" placeholder="Номер телефона" name="phone" inputmode="tel" required/>
     </label>
     <label>
       <input class="apr-input" type="text" placeholder="Ваше имя" name="name" maxlength="50" required/>
@@ -258,7 +357,7 @@
         <option value="Специалист на день">Специалист на день</option>
       </select>
     </label>
-    <button class="apr-button apr-t4" type="submit">Оставить заявку</button>
+    <button class="apr-button apr-button--type1 apr-t4" type="submit">Оставить заявку</button>
     <p>Нажимая кнопку вы даете <a href="/agreement" target="_blank">согласие</a> на <a href="/privacy" target="_blank">обработку данных</a></p>
   </form>
 </div>
@@ -271,7 +370,7 @@
       автоподбором. Вы приезжаете уже на конечный вариант, проверяете его и принимаете решение.
     </p>
     <label>
-      <input class="apr-input" type="text" placeholder="Номер телефона" name="phone" inputmode="email" required/>
+      <input class="apr-input" type="text" placeholder="Номер телефона" name="phone" inputmode="tel" required/>
     </label>
     <label>
       <input class="apr-input" type="text" placeholder="Ваше имя" name="name" maxlength="50" required/>
@@ -290,7 +389,7 @@
         <option value="Специалист на день">Специалист на день</option>
       </select>
     </label>
-    <button class="apr-button apr-t4" type="submit">Оплатить заказ</button>
+    <button class="apr-button apr-button--type1 apr-t4" type="submit">Оплатить заказ</button>
     <p>Нажимая кнопку вы даете <a href="/agreement" target="_blank">согласие</a> на <a href="/privacy" target="_blank">обработку данных</a></p>
   </form>
 </div>

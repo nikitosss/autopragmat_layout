@@ -24,6 +24,10 @@ $breakpoints: (
     right: 20px;
   };
 
+  @include media('tablet') {
+    max-width: 768px;
+  }
+
   @include media('mobile') {
     padding: {
       left: 16px;
