@@ -55,10 +55,10 @@ body {
 
   .apr-img {
     transition: transform 0.2s ease;
+  }
 
-    &:hover {
-      transform: scale(1.1);
-    }
+  &:hover .apr-img  {
+    transform: scale(1.1);
   }
 }
 
@@ -127,7 +127,7 @@ a {
   color: #FFFFFF;
   border: 1px solid;
   outline: none;
-  padding: 20px 40px;
+  padding: 21px 40px;
   transition: border-color 0.2s ease;
 
   @include media('mobile') {
@@ -176,7 +176,7 @@ a {
   cursor: pointer;
   border: none;
   outline: none;
-  padding: 20px 40px;
+  padding: 18px 40px;
 
   @include media('mobile') {
     font-size: 14px;
@@ -187,28 +187,6 @@ a {
   }
 
   &--type1 {
-    color: #FFFFFF;
-    background: #46A6FF;
-    transition: background 0.2s ease;
-
-    &:hover {
-      background: #77BDFF;
-    }
-
-    &:focus {
-      background: #3784CC;
-    }
-
-    &:disabled {
-      background: #A4A4A4;
-    }
-
-    &[aria-invalid="true"] {
-      background: #EC6060;
-    }
-  }
-
-  &--type2 {
     background: transparent;
     color: #46A6FF;
     padding: 19px 39px;
@@ -230,6 +208,54 @@ a {
 
     &[aria-invalid="true"] {
       color: #EC6060;
+    }
+  }
+
+  &--type2 {
+    color: #FFFFFF;
+    background: #46A6FF;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #77BDFF;
+    }
+
+    &:focus {
+      background: #3784CC;
+    }
+
+    &:disabled {
+      background: #A4A4A4;
+    }
+
+    &[aria-invalid="true"] {
+      background: #EC6060;
+    }
+  }
+
+  &--type3 {
+    color: #46A6FF;
+    background: #FFFFFF;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: #FFFFFF;
+      background: #77BDFF;
+    }
+
+    &:focus {
+      color: #FFFFFF;
+      background: #3784CC;
+    }
+
+    &:disabled {
+      color: #FFFFFF;
+      background: #A4A4A4;
+    }
+
+    &[aria-invalid="true"] {
+      color: #FFFFFF;
+      background: #EC6060;
     }
   }
 
@@ -481,7 +507,6 @@ a {
     display: inline-block;
     background: #1E1E1E;
     border: 1px solid #A4A4A4;
-    padding: 50px 60px;
     text-align: initial;
     font-size: 14px;
     line-height: 1.6;
@@ -498,10 +523,6 @@ a {
     line-height: 1;
     padding: 10px;
     font-family: arial, serif;
-  }
-
-  form {
-    max-width: 662px;
   }
 }
 

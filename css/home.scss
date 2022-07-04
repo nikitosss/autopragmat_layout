@@ -1,5 +1,30 @@
 @import "_settings";
 
+.apr-home {
+  display: flex;
+  flex-direction: column;
+  gap: 180px;
+  padding-bottom: 50px;
+
+  @include media('tablet') {
+    gap: 140px;
+  }
+
+  @include media('mobile') {
+    gap: 110px;
+  }
+
+  &-title {
+    border-bottom: 1px solid #414141;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+  }
+
+  section {
+    width: 100%;
+  }
+}
+
 .apr-first-screen {
   overflow-x: hidden;
   margin-top: 60px;
@@ -21,6 +46,7 @@
   &__left {
     float: left;
     width: 50%;
+    clear: left;
 
     @include media('tablet') {
       float: none;
@@ -31,6 +57,7 @@
   &__right {
     float: right;
     width: 50%;
+    clear: right;
 
     @include media('tablet') {
       float: none;
@@ -44,9 +71,11 @@
     align-items: center;
     max-width: 480px;
     margin: 0 auto;
+    gap: 15px;
 
     @include media('tablet') {
       text-align: center;
+      margin-bottom: 70px;
     }
   }
 
@@ -68,6 +97,7 @@
       left: 30px;
       opacity: 0;
       transition: opacity 0.2s ease;
+      pointer-events: none;
 
       @include media('tablet') {
         top: 20px;
@@ -109,6 +139,13 @@
     margin-top: $iconIndent + $iconSize * 2;
     max-width: 316px;
 
+    @include media('tablet') {
+      margin: {
+        left: auto;
+        right: auto;
+      };
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -123,20 +160,6 @@
 }
 
 .apr-second-screen {
-  margin-top: 180px;
-
-  @include media('tablet') {
-    margin-top: 140px;
-  }
-
-  @include media('mobile') {
-    margin-top: 110px;
-  }
-
-  &__title {
-    border-bottom: 1px solid #414141;
-  }
-
   &__note {
     max-width: 556px;
 
@@ -198,16 +221,10 @@
 .apr-third-screen {
   display: flex;
   gap: 100px;
-  margin-top: 180px;
 
   @include media('tablet') {
-    margin-top: 140px;
     flex-direction: column;
     align-items: center;
-  }
-
-  @include media('mobile') {
-    margin-top: 110px;
   }
 
   &__side {
@@ -269,16 +286,6 @@
 }
 
 .apr-fourth-screen {
-  margin-top: 180px;
-
-  @include media('tablet') {
-    margin-top: 140px;
-  }
-
-  @include media('mobile') {
-    margin-top: 110px;
-  }
-
   &__head {
     display: flex;
     justify-content: space-between;
@@ -346,17 +353,11 @@
 
 }
 
+.apr-fifth-screen {
+  background: rgba(red, 0.1);
+}
+
 .apr-sixth-screen {
-  margin-top: 180px;
-
-  @include media('tablet') {
-    margin-top: 140px;
-  }
-
-  @include media('mobile') {
-    margin-top: 110px;
-  }
-
   &__head {
     background: url('../img/s6_desktop.webp') 50% 50% / cover no-repeat;
     padding: {
@@ -413,8 +414,8 @@
     }
 
     form {
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 20px;
       padding: {
         top: 60px;
@@ -422,6 +423,7 @@
       };
 
       @include media('tablet') {
+        display: flex;
         flex-direction: column;
         justify-content: stretch;
         max-width: 290px;
@@ -434,21 +436,11 @@
   }
 }
 
+.apr-ninth-screen {
+  background: rgba(red, 0.1);
+}
+
 .apr-tenth-screen {
-  margin-top: 180px;
-
-  @include media('tablet') {
-    margin-top: 140px;
-  }
-
-  @include media('mobile') {
-    margin-top: 110px;
-  }
-
-  &__title {
-    border-bottom: 1px solid #414141;
-  }
-
   &__note {
     max-width: 606px;
   }
@@ -457,6 +449,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 40px;
+    overflow-x: auto;
 
     @include media('tablet') {
       display: flex;
@@ -488,20 +481,6 @@
 }
 
 .apr-twelfth-screen {
-  margin-top: 180px;
-
-  @include media('tablet') {
-    margin-top: 140px;
-  }
-
-  @include media('mobile') {
-    margin-top: 110px;
-  }
-
-  &__title {
-    border-bottom: 1px solid #414141;
-  }
-
   &__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -526,21 +505,11 @@
   }
 }
 
+.apr-thirteenth-screen {
+  background: rgba(red, 0.1);
+}
+
 .apr-fourteenth-screen {
-  margin-top: 180px;
-
-  @include media('tablet') {
-    margin-top: 140px;
-  }
-
-  @include media('mobile') {
-    margin-top: 110px;
-  }
-
-  &__title {
-    border-bottom: 1px solid #414141;
-  }
-
   &__grid {
     display: grid;
     gap: 40px;
@@ -674,4 +643,8 @@
       max-width: 228px;
     }
   }
+}
+
+.apr-fifteenth-screen {
+  background: rgba(red, 0.1);
 }
