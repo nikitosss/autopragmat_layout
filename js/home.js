@@ -8,7 +8,7 @@ async function youtubeDataInit() {
 
   try {
     if (!subscriberCount) {
-      const data = await fetch(API_URL + 'channels?' + new URLSearchParams({
+      const data = await fetch(`${API_URL}channels?` + new URLSearchParams({
         part: 'statistics',
         id: CHANNEL_ID,
         key: API_KEY,
@@ -23,7 +23,7 @@ async function youtubeDataInit() {
 
   try {
     if (!thumbnail) {
-      const data = await fetch(API_URL + 'channels?' + new URLSearchParams({
+      const data = await fetch(`${API_URL}channels?` + new URLSearchParams({
         part: 'snippet',
         id: CHANNEL_ID,
         key: API_KEY,
@@ -38,7 +38,7 @@ async function youtubeDataInit() {
 
   try {
     if (!videos) {
-      const data = await fetch(API_URL + 'search?' + new URLSearchParams({
+      const data = await fetch(`${API_URL}search?` + new URLSearchParams({
         part: 'snippet',
         maxResults: '3',
         order: 'date',
@@ -92,6 +92,6 @@ async function youtubeDataInit() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', () => {
   youtubeDataInit();
 });

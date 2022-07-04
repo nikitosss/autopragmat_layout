@@ -1,31 +1,31 @@
 window.$loadScript = (url, async = false, defer = false) =>
   new Promise((resolve, reject) => {
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.type = 'text/javascript';
     script.async = async;
     script.defer = defer;
     script.onload = resolve;
     script.onerror = reject;
     script.src = url;
-    var s = document.getElementsByTagName('script')[0];
+    const s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(script, s);
   });
 
 function footerMapInit($container) {
   if ($container) {
-    var isRender = false;
+    let isRender = false;
 
     function init() {
-      ymaps.ready(function () {
-        var coord = [55.81242804203617, 37.631908033779695];
-        var footerMap = new ymaps.Map($container, {
+      ymaps.ready(() => {
+        const coord = [55.81242804203617, 37.631908033779695];
+        const footerMap = new ymaps.Map($container, {
           center: coord,
           zoom: 16,
-          controls: ["fullscreenControl"],
+          controls: ['fullscreenControl'],
         });
-        var placemark = new ymaps.Placemark(footerMap.getCenter(), {
-          balloonContentHeader: $('.apr-logo').attr('alt'),
-          balloonContentBody: $('.apr-address').html(),
+        const placemark = new ymaps.Placemark(footerMap.getCenter(), {
+          balloonContentHeader: document.querySelector('.apr-logo').getAttribute('alt'),
+          balloonContentBody: document.querySelector('.apr-address').innerHTML,
         }, {
           iconLayout: 'default#image',
           iconImageHref: 'img/map_point.svg',
@@ -35,7 +35,7 @@ function footerMapInit($container) {
 
         footerMap.geoObjects.add(placemark);
         footerMap.controls.add('zoomControl', {
-          size: "small",
+          size: 'small',
         });
         footerMap.behaviors.disable('scrollZoom');
         footerMap.behaviors.disable('drag');
@@ -44,15 +44,13 @@ function footerMapInit($container) {
       });
     }
 
-    var footerMapObserver = new IntersectionObserver(function (entries) {
+    const footerMapObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !isRender) {
           if (typeof ymaps !== 'undefined') {
             init();
           } else {
-            window.$loadScript('https://api-maps.yandex.ru/2.1/?lang=ru_RU', true).then(function () {
-              init();
-            });
+            window.$loadScript('https://api-maps.yandex.ru/2.1/?lang=ru_RU', true).then(init);
           }
         }
       });
@@ -65,34 +63,43 @@ function footerMapInit($container) {
 }
 
 function scrollToInit() {
-  $('[data-scroll-to]').click(function () {
-    var id = $(this).data('scroll-to');
+  Array.from(document.querySelectorAll('[data-scroll-to]')).forEach((element) => {
+    element.addEventListener('click', (event) => {
+      const id = event.target.dataset.scrollTo;
 
-    console.log(id);
-
-    document.getElementById(id).scrollIntoView({
-      block: 'center',
-      behavior: 'smooth'
+      document.getElementById(id).scrollIntoView({
+        block: 'center',
+        behavior: 'smooth',
+      });
     });
   });
 }
 
 function modalInit() {
-  $('[data-open-modal]').click(function () {
-    var id = $(this).data('open-modal');
-    $('#' + id).attr('aria-modal', 'true');
-    $('html').attr('aria-modal', 'true');
+  Array.from(document.querySelectorAll('[data-open-modal]')).forEach((element) => {
+    element.addEventListener('click', (event) => {
+      const id = event.target.dataset.openModal;
+      document.getElementById(id).setAttribute('aria-modal', 'true');
+      document.documentElement.setAttribute('aria-modal', 'true');
+    });
   });
-  $('[data-close-modal]').click(function () {
-    var id = $(this).data('close-modal');
-    $('#' + id).attr('aria-modal', 'false');
-    $('html').attr('aria-modal', 'false');
+
+  Array.from(document.querySelectorAll('[data-close-modal]')).forEach((element) => {
+    element.addEventListener('click', (event) => {
+      const id = event.target.dataset.closeModal;
+      document.getElementById(id).setAttribute('aria-modal', 'false');
+      document.documentElement.setAttribute('aria-modal', 'false');
+    });
   });
-  $(document).on('keyup', function (e) {
-    if (e.key === 'Escape') {
-      $('[aria-modal]').attr('aria-modal', 'false');
+
+  document.addEventListener('keyup', (e) => {
+    if (e.key.toLowerCase() === 'escape') {
+      Array.from(document.querySelectorAll('[aria-modal]')).forEach((element) => {
+        element.setAttribute('aria-modal', 'false');
+      });
     }
   });
+
   document.documentElement.style.setProperty(
     '--scroll-bar-width',
     `${window.innerWidth - document.documentElement.clientWidth}px`
@@ -100,8 +107,8 @@ function modalInit() {
 }
 
 function swiperInit() {
-  var sliderSelector = '.apr-swiper';
-  var defaultOptions = {
+  const sliderSelector = '.apr-swiper';
+  const defaultOptions = {
     loop: true,
     pagination: {
       el: '.swiper-pagination',
@@ -113,33 +120,37 @@ function swiperInit() {
     },
   };
 
-  [].forEach.call(document.querySelectorAll(sliderSelector), function (slider) {
-    var data = slider.getAttribute('data-swiper') || '{}';
-    var dataOptions = JSON.parse(data);
+  [].forEach.call(document.querySelectorAll(sliderSelector), (slider) => {
+    const data = slider.dataset.swiper || '{}';
+    const dataOptions = JSON.parse(data);
     slider.options = Object.assign({}, defaultOptions, dataOptions);
-    var swiper = new Swiper(slider, slider.options);
+    const swiper = new Swiper(slider, slider.options);
 
-    /* stop on hover */
+    // stop on hover
     if (typeof slider.options.autoplay !== 'undefined' && slider.options.autoplay !== false) {
-      slider.addEventListener('mouseenter', function () {
+      slider.addEventListener('mouseenter', () => {
         swiper.autoplay.stop();
       });
 
-      slider.addEventListener('mouseleave', function () {
+      slider.addEventListener('mouseleave', () => {
         swiper.autoplay.start();
       });
     }
   });
 }
 
-document.addEventListener('DOMContentLoaded', function (event) {
-  window.$loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', true).then(function () {
-    scrollToInit();
-    modalInit();
-    footerMapInit(document.getElementById('footer_map'));
+document.addEventListener('DOMContentLoaded', (event) => {
+  // window.$loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', true).then(() => {
+  //
+  // });
 
-    window.$loadScript('https://unpkg.com/swiper@8.2.6/swiper-bundle.min.js', true).then(function () {
-      swiperInit();
-    });
+  modalInit();
+
+  scrollToInit();
+
+  window.$loadScript('https://unpkg.com/swiper@8.2.6/swiper-bundle.min.js', true).then(() => {
+    swiperInit();
   });
+
+  footerMapInit(document.getElementById('footer_map'));
 });
