@@ -26,61 +26,77 @@
 }
 
 .apr-first-screen {
-  overflow-x: hidden;
+  --gap: 40px;
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  grid-template-areas:
+    'title side'
+    'order side'
+    'note side';
+  gap: var(--gap);
   margin-top: 60px;
 
   @include media('tablet') {
+    --gap: 30px;
     margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   @include media('mobile') {
+    --gap: 40px;
     margin-top: 40px;
   }
 
-  &::after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-
-  &__left {
-    float: left;
-    width: 50%;
-    clear: left;
+  &__title {
+    grid-area: title;
+    margin: var(--gap) 0 0 0;
+    max-width: 480px;
 
     @include media('tablet') {
-      float: none;
-      width: auto;
-    }
-  }
-
-  &__right {
-    float: right;
-    width: 50%;
-    clear: right;
-
-    @include media('tablet') {
-      float: none;
-      width: auto;
+      margin: 0;
+      text-align: center;
     }
   }
 
   &__order {
+    grid-area: order;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 480px;
-    margin: 0 auto;
     gap: 15px;
+    max-width: 440px;
 
     @include media('tablet') {
-      text-align: center;
-      margin-bottom: 70px;
+      max-width: 350px;
+    }
+  }
+
+  &__button {
+    width: 440px;
+
+    @include media('mobile') {
+      width: 252px;
+    }
+  }
+
+  &__side {
+    grid-area: side;
+    width: 50%;
+
+    @include media('tablet') {
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    @include media('mobile') {
+      margin-top: 0;
     }
   }
 
   &__swiper {
-    width: calc(50vw - var(--scroll-bar-width) / 2);
+    width: calc(50vw - var(--gap) - var(--scroll-bar-width) / 2);
 
     @include media('tablet') {
       width: auto;
@@ -88,24 +104,51 @@
     }
 
     .swiper-slide {
-      color: #FFFFFF;
-    }
+      text-decoration: none;
+      position: relative;
 
-    figcaption {
-      position: absolute;
-      top: 30px;
-      left: 30px;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      pointer-events: none;
+      &__caption {
+        color: #FFFFFF;
+        line-height: 1.6;
+        font-size: 14px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
 
-      @include media('tablet') {
-        top: 20px;
-        left: 20px;
+        div {
+          font-size: 16px;
+        }
+
+        @include media('tablet') {
+          top: 20px;
+          left: 20px;
+        }
+
+        @include media('mobile') {
+          position: static;
+          top: initial;
+          left: initial;
+          margin-top: 10px;
+          opacity: 1;
+          font-size: 8px;
+
+          div {
+            font-size: 12px;
+          }
+        }
+      }
+
+      &:hover {
+        .swiper-slide__caption {
+          opacity: 1;
+        }
       }
     }
 
-    figure {
+    picture {
       width: 100%;
       position: relative;
       margin: 0;
@@ -113,12 +156,6 @@
 
       @include media('tablet') {
         padding-top: 52%;
-      }
-
-      &:hover {
-        figcaption {
-          opacity: 1;
-        }
       }
     }
 
@@ -135,8 +172,9 @@
   &__note {
     $iconSize: 30px;
     $iconIndent: 12px;
+    grid-area: note;
     position: relative;
-    margin-top: $iconIndent + $iconSize * 2;
+    margin-top: $iconIndent + $iconSize;
     max-width: 316px;
 
     @include media('tablet') {

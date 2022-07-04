@@ -60,57 +60,55 @@
   </ul>
 </nav>
 <main class="apr-home">
-  <section class="apr-first-screen">
-    <div class="apr-container">
-      <div class="apr-first-screen__left apr-first-screen__order">
-        <h1 class="apr-h1">Подберём подержанный автомобиль с гарантией и без риска</h1>
-        <button class="apr-button apr-button--type2" type="button" data-scroll-to="selection_form">
-          Заказать автоподбор
-        </button>
-        <span class="apr-t2">Мы перезвоним в течение 30 минут</span>
-      </div>
-      <div class="apr-first-screen__right">
-        <div class="apr-first-screen__swiper apr-swiper swiper" data-swiper='{
+  <section class="apr-first-screen apr-container">
+    <h1 class="apr-first-screen__title apr-h1">Подберём подержанный автомобиль с гарантией и без риска</h1>
+    <div class="apr-first-screen__order">
+      <button class="apr-first-screen__button apr-button apr-button--type2" type="button" data-scroll-to="selection_form">
+        Заказать автоподбор
+      </button>
+      <span class="apr-t2">Мы перезвоним в течение 30 минут</span>
+    </div>
+    <div class="apr-first-screen__side">
+      <div class="apr-first-screen__swiper apr-swiper swiper" data-swiper='{
         "speed": 1500,
         "autoplay": {
-          "delay": 5000,
+          "delay": 5000000,
           "disableOnInteraction": false
         }
       }'>
-          <div class="swiper-wrapper">
-            <a class="swiper-slide" href="#">
-              <figure class="apr-pic">
-                <img class="apr-img apr-img--cover" src="img/s1_1.webp" alt="s1_1">
-                <figcaption class="apr-t3">
-                  Недавно подобрали: Hyundai Palisade<br>
-                  Нажмите на фото, что прочитать кейс
-                </figcaption>
-              </figure>
-            </a>
-            <a class="swiper-slide" href="#">
-              <figure class="apr-pic">
-                <img class="apr-img apr-img--cover" src="img/s15_1.webp" alt="s15_1" loading="lazy">
-                <figcaption class="apr-t3">
-                  Нажмите на фото, что прочитать кейс
-                </figcaption>
-              </figure>
-            </a>
-            <a class="swiper-slide" href="#">
-              <figure class="apr-pic">
-                <img class="apr-img apr-img--cover" src="img/s15_2.webp" alt="s15_2" loading="lazy">
-                <figcaption class="apr-t3">
-                  Нажмите на фото, что прочитать кейс
-                </figcaption>
-              </figure>
-            </a>
-          </div>
+        <div class="swiper-wrapper">
+          <a class="swiper-slide" href="#">
+            <picture class="apr-pic">
+              <img class="apr-img apr-img--cover" src="img/s1_1.webp" alt="s1_1">
+            </picture>
+            <div class="swiper-slide__caption">
+              <div>Недавно подобрали: Hyundai Palisade</div>
+              Нажмите на фото, что прочитать кейс
+            </div>
+          </a>
+          <a class="swiper-slide" href="#">
+            <picture class="apr-pic">
+              <img class="apr-img apr-img--cover" src="img/s15_1.webp" alt="s15_1" loading="lazy">
+            </picture>
+            <div class="swiper-slide__caption">
+              Нажмите на фото, что прочитать кейс
+            </div>
+          </a>
+          <a class="swiper-slide" href="#">
+            <picture class="apr-pic">
+              <img class="apr-img apr-img--cover" src="img/s15_2.webp" alt="s15_2" loading="lazy">
+            </picture>
+            <div class="swiper-slide__caption">
+              Нажмите на фото, что прочитать кейс
+            </div>
+          </a>
         </div>
       </div>
-      <p class="apr-first-screen__left apr-first-screen__note apr-t2">
-        Мы поможем найти подходящую машину и тщательно проверим её перед тем, как рекомендовать к покупке: изучим
-        документы и проведём полную диагностику.
-      </p>
     </div>
+    <p class="apr-first-screen__note apr-t2">
+      Мы поможем найти подходящую машину и тщательно проверим её перед тем, как рекомендовать к покупке: изучим
+      документы и проведём полную диагностику.
+    </p>
   </section>
   <section class="apr-second-screen apr-container">
     <h2 class="apr-home-title apr-h4">Поиск автомобиля на вторичном рынке связан с рисками</h2>
