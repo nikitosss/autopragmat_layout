@@ -360,14 +360,14 @@ a {
     opacity: 1;
   }
 
-  &[href^="//vk.com/"] {
+  &[href*="vk"] {
     background: url("../img/vk.svg") 0 0 no-repeat;
     display: inline-block;
     width: 31px;
     height: 31px;
   }
 
-  &[href^="//youtube.com/"] {
+  &[href*="youtube"] {
     background: url("../img/yt.svg") 0 0 no-repeat;
     display: inline-block;
     width: 34px;
