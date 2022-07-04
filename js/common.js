@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   scrollToInit();
 
-  window.$loadScript('https://unpkg.com/swiper@8.2.6/swiper-bundle.min.js', true).then(() => {
+  window.$loadScript('js/swiper-bundle.min.js', true).then(() => {
     swiperInit();
   });
 
