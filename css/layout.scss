@@ -1,4 +1,4 @@
-@import "_settings";
+@import '_settings';
 
 .apr-header {
   @include media('mobile') {
@@ -111,7 +111,7 @@
     display: none;
     width: 32px;
     height: 25px;
-    background: url("../img/burger.svg") 0 0 / 32px 25px no-repeat;
+    background: url('../img/burger.svg') 0 0 / 32px 25px no-repeat;
 
     @include media('mobile') {
       display: block;
@@ -369,7 +369,7 @@
   transform: translateX(-100%);
   transition: transform 0.2s ease;
 
-  &[aria-modal="true"] {
+  &[aria-modal='true'] {
     transform: translateX(0%);
   }
 
@@ -399,7 +399,7 @@
     cursor: pointer;
     width: 25px;
     height: 25px;
-    background: url("../img/cross.svg") 0 0 / 25px 25px no-repeat;
+    background: url('../img/cross.svg') 0 0 / 25px 25px no-repeat;
   }
 
   .apr-phone {
@@ -475,9 +475,8 @@
     margin: 0;
   }
 
-  input,
-  select,
-  button {
+  .apr-label,
+  .apr-button {
     width: 100%;
     max-width: 488px;
     margin: 0 auto;

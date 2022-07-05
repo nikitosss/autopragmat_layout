@@ -1,4 +1,4 @@
-@import "_settings";
+@import '_settings';
 
 .apr-home {
   display: flex;
@@ -215,7 +215,7 @@
       top: -($iconSize + $iconIndent);
       width: $iconSize;
       height: $iconSize;
-      background: url("../img/search.svg") 0 0 / #{$iconSize} no-repeat;
+      background: url('../img/search.svg') 0 0 / #{$iconSize} no-repeat;
 
     }
   }
@@ -262,15 +262,15 @@
     }
 
 
-    &[data-item="1"]::before  {
+    &[data-item='1']::before  {
       background: url('../img/s2_1.webp') 50% 50% / cover no-repeat;
     }
 
-    &[data-item="2"]::before  {
+    &[data-item='2']::before  {
       background: url('../img/s2_2.webp') 50% 50% / cover no-repeat;
     }
 
-    &[data-item="3"]::before  {
+    &[data-item='3']::before  {
       background: url('../img/s2_3.webp') 50% 50% / cover no-repeat;
     }
 
@@ -337,7 +337,7 @@
         left: 4px;
         width: $iconSize;
         height: $iconSize;
-        background: url("../img/marker_arrow.svg") 0 0 / #{$iconSize} no-repeat;
+        background: url('../img/marker_arrow.svg') 0 0 / #{$iconSize} no-repeat;
       }
     }
   }
@@ -406,7 +406,7 @@
       flex-shrink: 0;
       width: $iconSize;
       height: $iconSize;
-      background: url("../img/note_info.svg") 0 0 / #{$iconSize} no-repeat;
+      background: url('../img/note_info.svg') 0 0 / #{$iconSize} no-repeat;
     }
   }
 
@@ -795,7 +795,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("../img/play.svg") 50% 50% / 45px no-repeat;
+      background: url('../img/play.svg') 50% 50% / 45px no-repeat;
       pointer-events: none;
       z-index: 1;
     }

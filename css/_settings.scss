@@ -48,7 +48,7 @@ $breakpoints: (
     font-size: 12px;
     line-height: 1.6;
   } @else {
-    @error "Unknown direction #{$type}.";
+    @error 'Unknown direction #{$type}.';
   }
 }
 
