@@ -137,7 +137,7 @@ a {
   color: #FFFFFF;
   border: 1px solid;
   outline: none;
-  padding: 23px 40px 19px;
+  padding: 23px 30px 19px;
 
   @include media('mobile') {
     font-size: 12px;
@@ -186,6 +186,19 @@ a {
   }
 }
 
+.apr-select {
+  padding: 19px 39px 19px 30px;
+  background: url('../img/arrow_down.svg') calc(100% - 34px) 50% / 25px no-repeat;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  option {
+    background: #1E1E1E;
+    color: #FFFFFF;
+  }
+}
+
 .apr-label {
   $indent: 70px;
   position: relative;
@@ -227,15 +240,6 @@ a {
   &[data-icon='at']::before {
     background-image: url('../img/at.svg');
     background-size: 20px;
-  }
-}
-
-.apr-select {
-  padding: 19px 39px;
-
-  option {
-    background: #1E1E1E;
-    color: #FFFFFF;
   }
 }
 
@@ -563,14 +567,20 @@ a {
 
   &__close {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 20px;
+    right: 20px;
+    font-size: 0;
     cursor: pointer;
-    color: #414141;
-    font-size: 25px;
-    line-height: 1;
-    padding: 10px;
-    font-family: arial, serif;
+    width: 25px;
+    height: 25px;
+    background: url('../img/cross.svg') 0 0 / 25px 25px no-repeat;
+    filter: grayscale(1);
+
+    @include media('mobile') {
+      top: 10px;
+      right: 10px;
+      background-size: 20px;
+    }
   }
 }
 

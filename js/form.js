@@ -1,9 +1,12 @@
 // window.captcha_key = '6Lcam9UbAAAAAI3O-q8IIw-BgHnrVVjg0EHQiZU-';
 window.captcha_key = '6LctjcggAAAAAMjDO81zSSFDOAnwVpM6S3EX5CWU';
 
-window.$loadScript('https://www.google.com/recaptcha/api.js?render=' + window.captcha_key, true, true);
+$(async () => {
+  await window.$loadScript('js/jquery.inputmask.bundle.js', true);
+  await window.$loadScript('js/jquery.validate.min.js', true);
+  await window.$loadScript('js/additional-methods.min.js', true);
+  await window.$loadScript(`https://www.google.com/recaptcha/api.js?render=${window.captcha_key}`, true);
 
-$(() => {
   const decimalPattern = '^[1-9]\\d*((,|\\.)\\d{2})?$';
 
   $.validator.addMethod(

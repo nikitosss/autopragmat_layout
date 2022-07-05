@@ -147,5 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
     swiperInit();
   });
 
+  window.$loadScript('js/jquery.min.js', true).then(() => {
+    window.$loadScript('js/form.js', true);
+  });
+
   footerMapInit(document.getElementById('footer_map'));
 });
