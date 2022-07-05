@@ -13,7 +13,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    padding-top: 22px;
+    padding-top: 24px;
+    padding-bottom: 2px;
 
     @include media('tablet') {
       padding-top: 18px;

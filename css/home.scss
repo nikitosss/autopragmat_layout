@@ -17,7 +17,7 @@
   &-title {
     border-bottom: 1px solid #414141;
     padding-bottom: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   section {
@@ -50,13 +50,19 @@
   }
 
   &__title {
+    @include font(h1);
     grid-area: title;
     margin: var(--gap) 0 0 0;
     max-width: 480px;
 
     @include media('tablet') {
+      @include font(h2);
       margin: 0;
       text-align: center;
+    }
+
+    @include media('mobile') {
+      @include font(h3);
     }
   }
 
@@ -74,10 +80,23 @@
   }
 
   &__button {
+    @include font(h3);
     width: 440px;
+    padding: 26px 0;
+    margin-top: 5px;
 
     @include media('mobile') {
+      @include font(t2);
       width: 252px;
+      padding: 14px 0;
+    }
+  }
+
+  &__sub {
+    @include font(t2);
+
+    @include media('mobile') {
+      @include font(t1);
     }
   }
 
@@ -176,12 +195,17 @@
     position: relative;
     margin-top: $iconIndent + $iconSize;
     max-width: 316px;
+    @include font(t2);
 
     @include media('tablet') {
       margin: {
         left: auto;
         right: auto;
       };
+    }
+
+    @include media('mobile') {
+      @include font(t1);
     }
 
     &::before {
@@ -276,32 +300,41 @@
   }
 
   &__title {
+    margin: 14px 0;
     text-align: left;
+    @include font(h2);
 
     @include media('tablet') {
       text-align: center;
     }
+
+    @include media('mobile') {
+      @include font(h4);
+    }
   }
 
   &__list {
+    margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 40px;
 
     @include media('mobile') {
+      gap: 16px;
       grid-template-columns: 1fr;
     }
 
     li {
       $iconSize: 12px;
       position: relative;
-      padding-left: $iconSize + 16px;
+      padding-left: 34px;
+      @include font(t2);
 
       &::before {
         content: '';
         position: absolute;
-        top: 3px;
-        left: 0;
+        top: 4px;
+        left: 4px;
         width: $iconSize;
         height: $iconSize;
         background: url("../img/marker_arrow.svg") 0 0 / #{$iconSize} no-repeat;
@@ -336,9 +369,15 @@
 
   &__title {
     text-align: left;
+    margin: 0;
+    @include font(h2);
 
     @include media('tablet') {
       text-align: center;
+    }
+
+    @include media('mobile') {
+      @include font(h4);
     }
   }
 
@@ -372,6 +411,7 @@
   }
 
   &__list {
+    margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
@@ -381,6 +421,8 @@
     }
 
     li {
+      display: inline-flex;
+      flex-direction: column;
       margin: 0 auto;
 
       @include media('tablet') {
@@ -389,6 +431,13 @@
     }
   }
 
+  &__desc {
+    @include font(t2);
+
+    @include media('mobile') {
+      @include font(t1);
+    }
+  }
 }
 
 .apr-fifth-screen {
@@ -400,7 +449,7 @@
     background: url('../img/s6_desktop.webp') 50% 50% / cover no-repeat;
     padding: {
       top: 116px;
-      bottom: 109px;
+      bottom: 106px;
     };
 
     @include media('tablet') {
@@ -414,6 +463,23 @@
 
     @include media('mobile') {
       padding-bottom: 40px;
+    }
+  }
+
+  &__title {
+    @include font(h1);
+    margin: 0 0 22px;
+
+    @include media('mobile') {
+      @include font(h4);
+    }
+  }
+
+  &__note {
+    @include font(t2);
+
+    @include media('mobile') {
+      @include font(t1);
     }
   }
 
@@ -480,7 +546,13 @@
 
 .apr-tenth-screen {
   &__note {
-    max-width: 606px;
+    margin: 40px 0;
+    max-width: 610px;
+    @include font(t2);
+
+    @include media('mobile') {
+      @include font(t1);
+    }
   }
 
   &__list {
@@ -506,7 +578,16 @@
   }
 
   &__desc {
-    padding: 14px 14px 22px;
+    padding: 5px 14px 22px;
+  }
+
+  &__name {
+    margin: 0 0 10px;
+    @include font(h3);
+
+    @include media('mobile') {
+      @include font(t4);
+    }
   }
 
   &__all {
@@ -520,6 +601,7 @@
 
 .apr-twelfth-screen {
   &__list {
+    margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 40px;
@@ -541,6 +623,18 @@
       }
     }
   }
+
+  &__name {
+    margin: 0 0 18px;
+  }
+
+  &__desc {
+    @include font(t2);
+
+    @include media('mobile') {
+      @include font(t1);
+    }
+  }
 }
 
 .apr-thirteenth-screen {
@@ -549,6 +643,7 @@
 
 .apr-fourteenth-screen {
   &__grid {
+    margin-top: 50px;
     display: grid;
     gap: 40px;
     grid-template-areas:
@@ -574,6 +669,34 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+  }
+
+  &__name {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.5;
+    margin: 40px 0 0 0;
+  }
+
+  &__note {
+    @include font(h4);
+    margin: 20px 0 0 0;
+    max-width: 50%;
+
+    @include media('tablet') {
+      max-width: none;
+    }
+  }
+
+  &__desc {
+    @include font(t2);
+    margin: 30px 0 0 0;
+    max-width: 60%;
+
+    @include media('tablet') {
+      max-width: none;
+    }
   }
 
   &__pic {
