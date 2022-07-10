@@ -42,6 +42,10 @@ body {
   visibility: hidden;
 }
 
+.hide {
+  display: none;
+}
+
 .apr-img {
   max-width: 100%;
   height: auto;
@@ -128,11 +132,12 @@ a {
 }
 
 .apr-select,
+.apr-select + .select2 .select2-selection,
+.apr-textarea,
 .apr-input {
   font-family: 'Overpass', sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 1;
   background-color: transparent;
   color: #FFFFFF;
   border: 1px solid;
@@ -153,6 +158,7 @@ a {
   }
 
   &.error,
+  &.error + .select2 .select2-selection,
   &[aria-invalid='true'] {
     color: #EC6060;
     border-color: currentColor;
@@ -199,11 +205,19 @@ a {
   }
 }
 
+.apr-textarea {
+  min-height: 100px;
+  resize: none;
+  overflow: hidden;
+}
+
 .apr-label {
   $indent: 70px;
   position: relative;
+  display: inline-flex;
 
   .apr-select,
+  .apr-textarea,
   .apr-input {
     width: 100%;
   }

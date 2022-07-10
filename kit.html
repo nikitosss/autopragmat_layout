@@ -13,7 +13,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"></noscript>
 
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/select2.css">
 
   <script src="js/common.js" type="text/javascript"></script>
 </head>
@@ -41,13 +41,13 @@
     <a href="#" aria-invalid="true">Ссылка с ошибкой</a>
   </p>
   <p>
-    <label>
+    <label class="apr-label">
       <input class="apr-input" type="text" placeholder="Номер телефона"/>
     </label>
-    <label>
+    <label class="apr-label">
       <input class="apr-input" type="text" placeholder="Номер телефона" disabled/>
     </label>
-    <label>
+    <label class="apr-label">
       <input class="apr-input" type="text" placeholder="Номер телефона" aria-invalid="true"/>
     </label>
   </p>
@@ -73,17 +73,28 @@
   </p>
   <form>
     <p>
-      <label>
-        <input class="apr-input" type="tel" placeholder="Номер телефона" name="phone" required/>
+      <label class="apr-label">
+        <input class="apr-input" type="tel" placeholder="Номер телефона" name="phone"/>
       </label>
-      <label>
-        <input class="apr-input" type="text" placeholder="Ваше имя" name="name" required/>
+      <label class="apr-label">
+        <input class="apr-input" type="text" placeholder="Ваше имя" name="name"/>
       </label>
-      <label>
-        <input class="apr-input" type="email" placeholder="Электронная почта" name="email" required/>
+      <label class="apr-label">
+        <input class="apr-input" type="email" placeholder="Электронная почта" name="email"/>
       </label>
-      <label>
-        <select class="apr-select" name="model" required>
+      <label class="apr-label">
+        <textarea class="apr-textarea" name="comment" placeholder="Комментарий"></textarea>
+      </label>
+      <label class="apr-label">
+        <select class="apr-select required" name="type_usluga" data-placeholder="Выберите услугу">
+          <option value="">Выберите услугу</option>
+          <option value="Подбор автомобиля">Подбор автомобиля</option>
+          <option value="Выездная диагностика">Выездная диагностика</option>
+          <option value="Специалист на день">Специалист на день</option>
+        </select>
+      </label>
+      <label class="apr-label">
+        <select class="apr-select" name="model" data-placeholder="Выбрать модель" multiple>
           <option value="">Выбрать модель</option>
           <option value="Audi">Audi (34)</option>
           <option value="Mercedes">Mercedes (127)</option>

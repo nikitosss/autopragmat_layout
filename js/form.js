@@ -5,17 +5,17 @@ $(async () => {
   await window.$loadScript('js/jquery.inputmask.bundle.js', true);
   await window.$loadScript('js/jquery.validate.min.js', true);
   await window.$loadScript('js/additional-methods.min.js', true);
+  await window.$loadScript('js/select2.min.js', true);
   await window.$loadScript(`https://www.google.com/recaptcha/api.js?render=${window.captcha_key}`, true);
 
   const decimalPattern = '^[1-9]\\d*((,|\\.)\\d{2})?$';
 
   $.validator.addMethod(
     'regex',
-    function(value, element, regexp) {
+    function (value, element, regexp) {
       if (regexp.constructor !== RegExp) {
         regexp = new RegExp(regexp);
-      }
-      else if (regexp.global) {
+      } else if (regexp.global) {
         regexp.lastIndex = 0;
       }
       return this.optional(element) || regexp.test(value);
@@ -43,7 +43,9 @@ $(async () => {
     alias: 'integer',
     mask: 'N9{10}',
     definitions: {
-      'N': { validator: '[1-9]' },
+      'N': {
+        validator: '[1-9]'
+      },
     }
   });
 
@@ -54,8 +56,12 @@ $(async () => {
     // removeMaskOnSubmit: true,
     placeholder: '‐',
     definitions: {
-      'S': { validator: '[7]' },
-      'E': { validator: '[8]' },
+      'S': {
+        validator: '[7]'
+      },
+      'E': {
+        validator: '[8]'
+      },
     },
     onBeforePaste(pastedValue) {
       return pastedValue.substring(pastedValue.length - 11);
@@ -66,9 +72,36 @@ $(async () => {
     regex: '^[a-zA-Zа-яА-ЯёЁ\-\\s]+',
   });
 
+  $('.apr-select:not([multiple])').select2({
+    minimumResultsForSearch: Infinity,
+  });
+
+  $('.apr-select[multiple]').select2({
+    minimumResultsForSearch: Infinity,
+    closeOnSelect: false
+  }).on('change', function () {
+    const $select2 = $(this).next();
+    const $search = $select2.find('.select2-search');
+    $select2.find('.select2-selection__rendered li:not(.select2-search--inline)').hide();
+    $select2.find('.counter').remove();
+    $search.show();
+    const counter = $select2.find('.select2-selection__choice').length;
+    if (counter) {
+      $search.hide();
+      $select2.find('.select2-selection__rendered').after(`<div class="counter">Выбрано ${counter}</div>`);
+    }
+  });
+
   $('textarea').on('input', (e) => {
     e.target.style.height = '1px';
     e.target.style.height = e.target.scrollHeight + 'px';
+  });
+
+  $('[data-services="select"]').on('change', function () {
+    const $select = $(this);
+    const $form = $select.closest('form');
+    $form .find('[data-service]').addClass('hide');
+    $form .find(`[data-service="${$select.val()}"]`).removeClass('hide');
   });
 
   $('[data-ajax-form="oplata"]').each(function () {
@@ -82,7 +115,9 @@ $(async () => {
         $button.prop('disabled', true);
 
         grecaptcha.ready(() => {
-          grecaptcha.execute(window.captcha_key, { action: 'oplata' }).then((token) => {
+          grecaptcha.execute(window.captcha_key, {
+            action: 'oplata'
+          }).then((token) => {
             const input = document.createElement('input');
             input.type = 'hidden';
             input.name = 'g-recaptcha-response';
@@ -108,7 +143,9 @@ $(async () => {
         $button.prop('disabled', true);
 
         grecaptcha.ready(() => {
-          grecaptcha.execute(window.captcha_key, { action: 'zayavka' }).then((token) => {
+          grecaptcha.execute(window.captcha_key, {
+            action: 'zayavka'
+          }).then((token) => {
             const data = new FormData(form);
             data.append('g-recaptcha-response', token.toString());
 
