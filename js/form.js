@@ -109,6 +109,12 @@ $(async () => {
     $form .find(`[data-service="${$select.val()}"]`).removeClass('hide');
   });
 
+  $('[data-open-modal="request_form"],[data-open-modal="pay_form"]').on('click', async () => {
+    // window.captcha_key = '6Lcam9UbAAAAAI3O-q8IIw-BgHnrVVjg0EHQiZU-';
+    window.captcha_key = '6LctjcggAAAAAMjDO81zSSFDOAnwVpM6S3EX5CWU';
+    await window.$loadScript(`https://www.google.com/recaptcha/api.js?render=${window.captcha_key}`, true);
+  });
+
   $('[data-ajax-form="oplata"]').each(function () {
     $(this).validate({
       errorPlacement() {
