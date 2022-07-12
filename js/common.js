@@ -78,7 +78,7 @@ function swiperInit() {
     });
 
     // stop on hover
-    if (typeof swiper?.params?.autoplay !== 'undefined' && swiper?.params?.autoplay !== false) {
+    if (typeof dataOptions?.autoplay !== 'undefined' && dataOptions?.autoplay !== false) {
       $container.on('mouseenter', () => {
         swiper.autoplay.stop();
       });
