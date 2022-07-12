@@ -153,3 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   footerMapInit(document.getElementById('footer_map'));
 });
+
+window.addEventListener('load', async () => {
+  // window.captcha_key = '6Lcam9UbAAAAAI3O-q8IIw-BgHnrVVjg0EHQiZU-';
+  window.captcha_key = '6LctjcggAAAAAMjDO81zSSFDOAnwVpM6S3EX5CWU';
+  await window.$loadScript(`https://www.google.com/recaptcha/api.js?render=${window.captcha_key}`, true);
+  console.log('grecaptcha', grecaptcha);
+});
