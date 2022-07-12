@@ -55,6 +55,25 @@ function scrollToInit() {
   });
 }
 
+function collapseInit() {
+  Array.from(document.querySelectorAll('[data-scroll-to]')).forEach((element) => {
+    element.addEventListener('click', (event) => {
+      const id = event.target.dataset.scrollTo;
+
+      document.getElementById(id).scrollIntoView({
+        block: 'center',
+        behavior: 'smooth',
+      });
+    });
+  });
+
+  $('[data-collapse-item]').on('click', function () {
+    $(this).toggleClass('open');
+    $(this).find('.apr-second-screen__item-text').slideToggle('slow');
+  });
+}
+
+
 function swiperInit() {
   $('.apr-swiper').each(function () {
     const $container = $(this);
@@ -149,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
       swiperInit();
     });
     window.$loadScript('js/form.js', true);
+    collapseInit();
   });
 
   footerMapInit(document.getElementById('footer_map'));

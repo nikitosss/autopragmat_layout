@@ -248,11 +248,22 @@
   }
 
   &__item {
+    $item: &;
     position: relative;
     overflow: hidden;
     padding: 20px 20px 34px 20px;
 
-    &::before {
+    @include media('tablet') {
+      padding: 30px 38px;
+      cursor: pointer;
+    }
+
+    @include media('mobile') {
+      padding: 20px 12px;
+    }
+
+    &::before,
+    &::after {
       content: '';
       position: absolute;
       top: 0;
@@ -260,24 +271,91 @@
       right: 0;
       bottom: 0;
       z-index: -1;
+    }
+
+    &::before {
       transition: transform 0.2s ease;
     }
 
+    &::after {
+      transition: background 0.2s ease;
+    }
 
-    &[data-item='1']::before  {
+    &[data-collapse-item='1']::before  {
       background: url('../img/s2_1.webp') 50% 50% / cover no-repeat;
     }
 
-    &[data-item='2']::before  {
+    &[data-collapse-item='2']::before  {
       background: url('../img/s2_2.webp') 50% 50% / cover no-repeat;
     }
 
-    &[data-item='3']::before  {
+    &[data-collapse-item='3']::before  {
       background: url('../img/s2_3.webp') 50% 50% / cover no-repeat;
     }
 
     &:hover::before {
       transform: scale(1.1);
+    }
+
+    &-title {
+      margin: 0;
+      @include font(h3);
+
+      @include media('tablet') {
+        display: flex;
+        gap: 20px;
+
+        &::before {
+          content: '＋';
+          line-height: 1;
+          font-size: 30px;
+          transition: transform 0.2s ease;
+        }
+      }
+
+      @include media('mobile') {
+        @include font(h4);
+
+        &::before {
+          font-size: 25px;
+        }
+      }
+    }
+
+    &-text {
+      margin: 25px 0 0;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+
+      @include media('tablet') {
+        margin: 12px 0 0;
+        display: none;
+      }
+
+      @include media('mobile') {
+        margin: 84px 0 0;
+      }
+    }
+
+    &:hover {
+      &::after {
+        background: rgba(#46A6FF, 0.5);
+      }
+
+      #{$item}-text {
+        opacity: 1;
+      }
+    }
+
+    &.open {
+      #{$item}-title {
+        &::before {
+          transform: rotate(45deg);
+        }
+      }
+      #{$item}-text {
+        opacity: 1;
+      }
     }
   }
 }
