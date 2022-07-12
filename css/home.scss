@@ -116,6 +116,8 @@
 
   &__swiper {
     width: calc(50vw - var(--gap) - var(--scroll-bar-width) / 2);
+    font-size: 0;
+    line-height: 0;
 
     @include media('tablet') {
       width: auto;
@@ -638,7 +640,130 @@
 }
 
 .apr-thirteenth-screen {
-  background: rgba(red, 0.1);
+  &__title {
+    @include font(h2);
+
+    @include media('mobile') {
+      @include font(h4);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 50px;
+
+    @include media('mobile') {
+      flex-direction: column;
+    }
+  }
+
+  &__note {
+    margin: 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    align-self: flex-start;
+
+    @include media('mobile') {
+      align-self: center;
+    }
+  }
+
+  &__swiper {
+    @include media('tablet') {
+      margin: 0 auto;
+      max-width: 466px;
+    }
+
+    .swiper {
+      margin: 0 110px;
+
+      @include media('tablet') {
+        margin: 0;
+      }
+
+      &-pagination {
+        position: static;
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 35px;
+
+    @include media('tablet') {
+      .swiper {
+        &-button-prev,
+        &-button-next {
+          flex-shrink: 0;
+          margin: 0;
+          position: static;
+        }
+      }
+    }
+
+    @include media('mobile') {
+      .swiper {
+        &-button-prev,
+        &-button-next {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__slide {
+    background: #2C2C2C;
+    padding: 40px;
+    @include font(t2);
+
+    &-head {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+
+      @include media('mobile') {
+        gap: 10px;
+      }
+    }
+
+    &-side {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      @include media('mobile') {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    &-name {
+      margin-right: auto;
+
+      strong {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    }
+
+    &-rating {
+      color: #46A6FF;
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: 4px;
+    }
+  }
 }
 
 .apr-fourteenth-screen {

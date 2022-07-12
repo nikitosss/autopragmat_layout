@@ -56,32 +56,33 @@ function scrollToInit() {
 }
 
 function swiperInit() {
-  const sliderSelector = '.apr-swiper';
-  const defaultOptions = {
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  };
+  $('.apr-swiper').each(function () {
+    const $container = $(this);
+    const $swiper = $container.find('.swiper');
+    const $next = $container.find('.swiper-button-next');
+    const $prev = $container.find('.swiper-button-prev');
+    const $pagination = $container.find('.swiper-pagination');
+    const dataOptions = $swiper.data('swiper') || {};
 
-  [].forEach.call(document.querySelectorAll(sliderSelector), (slider) => {
-    const data = slider.dataset.swiper || '{}';
-    const dataOptions = JSON.parse(data);
-    slider.options = Object.assign({}, defaultOptions, dataOptions);
-    const swiper = new Swiper(slider, slider.options);
+    const swiper = new Swiper($swiper.get(0), {
+      loop: true,
+      navigation: {
+        nextEl: $next.get(0),
+        prevEl: $prev.get(0),
+      },
+      pagination: {
+        el: $pagination.get(0),
+        clickable: true
+      },
+      ...dataOptions,
+    });
 
     // stop on hover
-    if (typeof slider.options.autoplay !== 'undefined' && slider.options.autoplay !== false) {
-      slider.addEventListener('mouseenter', () => {
+    if (typeof swiper?.params?.autoplay !== 'undefined' && swiper?.params?.autoplay !== false) {
+      $container.on('mouseenter', () => {
         swiper.autoplay.stop();
       });
-
-      slider.addEventListener('mouseleave', () => {
+      $container.on('mouseleave', () => {
         swiper.autoplay.start();
       });
     }
@@ -143,11 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
   modalInit();
   scrollToInit();
 
-  window.$loadScript('js/swiper-bundle.min.js', true).then(() => {
-    swiperInit();
-  });
-
   window.$loadScript('js/jquery.min.js', true).then(() => {
+    window.$loadScript('js/swiper-bundle.min.js', true).then(() => {
+      swiperInit();
+    });
     window.$loadScript('js/form.js', true);
   });
 

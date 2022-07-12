@@ -1,6 +1,6 @@
 @import '_settings';
 @import '../node_modules/normalize.css/normalize';
-@import '../node_modules/swiper/swiper';
+@import '../node_modules/swiper/swiper-bundle.min.css';
 
 :root {
   --scroll-bar-width: 0;
@@ -466,8 +466,6 @@ a {
 }
 
 .swiper {
-  --swiper-theme-color: #46A6FF;
-
   &-button {
     &-next, &-prev {
       --swiper-navigation-size: 36px;
@@ -537,9 +535,9 @@ a {
 }
 
 .apr-swiper {
+  --swiper-theme-color: #46A6FF;
+  position: relative;
   @include selectNone;
-  font-size: 0;
-  line-height: 0;
 }
 
 .apr-modal {
