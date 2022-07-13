@@ -110,6 +110,31 @@ function youtubeDataInit($container) {
   YdataObserver.observe($container);
 }
 
+function homeSwiperInit(selector) {
+  $(selector).each(function () {
+    const $container = $(this);
+    const $swiper = $container.find('.swiper');
+    const $next = $container.find('.swiper-button-next');
+    const $prev = $container.find('.swiper-button-prev');
+    const $pagination = $container.find('.swiper-pagination');
+    const dataOptions = $swiper.data('swiper') || {};
+
+    const swiper = new Swiper($swiper.get(0), {
+      loop: true,
+      navigation: {
+        nextEl: $next.get(0),
+        prevEl: $prev.get(0),
+      },
+      pagination: {
+        el: $pagination.get(0),
+        clickable: true
+      },
+      ...dataOptions,
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   youtubeDataInit(document.getElementById('y_data'));
+  homeSwiperInit('.home-swiper');
 });

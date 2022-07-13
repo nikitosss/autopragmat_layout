@@ -43,39 +43,23 @@ function modalInit() {
 }
 
 function scrollToInit() {
-  Array.from(document.querySelectorAll('[data-scroll-to]')).forEach((element) => {
-    element.addEventListener('click', (event) => {
-      const id = event.target.dataset.scrollTo;
-
-      document.getElementById(id).scrollIntoView({
-        block: 'center',
-        behavior: 'smooth',
-      });
+  $('[data-scroll-to]').on('click', function () {
+    document.getElementById($(this).data('scroll-to')).scrollIntoView({
+      block: 'center',
+      behavior: 'smooth',
     });
   });
 }
 
 function collapseInit() {
-  Array.from(document.querySelectorAll('[data-scroll-to]')).forEach((element) => {
-    element.addEventListener('click', (event) => {
-      const id = event.target.dataset.scrollTo;
-
-      document.getElementById(id).scrollIntoView({
-        block: 'center',
-        behavior: 'smooth',
-      });
-    });
-  });
-
   $('[data-collapse-item]').on('click', function () {
     $(this).toggleClass('open');
     $(this).find('.apr-second-screen__item-text').slideToggle('slow');
   });
 }
 
-
-function swiperInit() {
-  $('.apr-swiper').each(function () {
+function swiperInit(selector) {
+  $(selector).each(function () {
     const $container = $(this);
     const $swiper = $container.find('.swiper');
     const $next = $container.find('.swiper-button-next');
@@ -162,14 +146,8 @@ function footerMapInit($container) {
 document.addEventListener('DOMContentLoaded', () => {
   modalInit();
   scrollToInit();
-
-  window.$loadScript('js/jquery.min.js', true).then(() => {
-    window.$loadScript('js/swiper-bundle.min.js', true).then(() => {
-      swiperInit();
-    });
-    window.$loadScript('js/form.js', true);
-    collapseInit();
-  });
-
+  swiperInit('.apr-swiper');
+  collapseInit();
   footerMapInit(document.getElementById('footer_map'));
+  window.$loadScript('js/form.js', true);
 });

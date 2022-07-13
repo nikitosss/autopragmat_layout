@@ -521,7 +521,140 @@
 }
 
 .apr-fifth-screen {
-  background: rgba(red, 0.1);
+  position: relative;
+  display: flex;
+
+  @include media('tablet') {
+    flex-direction: column;
+    max-width: 510px;
+  }
+
+  &__head {
+     padding-bottom: 500px;
+
+    @include media('tablet') {
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    @include font(h2);
+
+    @include media('mobile') {
+      @include font(h3);
+    }
+  }
+
+  &__note {
+    margin: 16px 0;
+    max-width: 372px;
+    @include font(t2);
+
+    @include media('mobile') {
+      @include font(t1);
+    }
+  }
+
+  &__side {
+    max-width: 770px;
+    margin-left: auto;
+    flex: 1;
+    background: #282828;
+
+    @include media('tablet') {
+      max-width: 100%;
+    }
+
+    .swiper-slide {
+      text-decoration: none;
+      color: inherit;
+      padding: 60px 55px 60px 144px;
+      @include font(t2);
+
+      @include media('tablet') {
+        padding: 40px;
+        @include font(t1);
+      }
+
+      @include media('mobile') {
+        padding: 40px 25px;
+      }
+
+      img {
+        display: none;
+
+        @include media('tablet') {
+          display: block;
+          width: 100%;
+          margin-bottom: 20px;
+          aspect-ratio: 427 / 277;
+        }
+
+        @include media('mobile') {
+          display: block;
+          width: 100%;
+          margin-bottom: 20px;
+          aspect-ratio: 265 / 171;
+        }
+      }
+
+      h3 {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #46A6FF;
+        margin: 0 0 10px;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+    grid-gap: 20px 40px;
+
+    @include media('tablet') {
+      grid-template-columns: minmax(0, 70%) minmax(0, 30%);
+      grid-gap: 40px 20px;
+    }
+
+    @include media('mobile') {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+  }
+
+  &__price {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid #46A6FF;
+    padding: 15px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+
+    span {
+      white-space: nowrap;
+    }
+
+    @include media('tablet') {
+      @include font(t3);
+    }
+
+    @include media('mobile') {
+      @include font(t2);
+    }
+  }
 }
 
 .apr-sixth-screen {
@@ -1061,6 +1194,10 @@
 
     @include media('tablet') {
       width: 354px;
+    }
+
+    @include media('mobile') {
+      width: calc(100vw - var(--scroll-bar-width, 0));
     }
 
     figure {
