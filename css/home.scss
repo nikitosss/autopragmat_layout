@@ -11,7 +11,8 @@
   }
 
   @include media('mobile') {
-    gap: 110px;
+    gap: 90px;
+    padding-bottom: 110px;
   }
 
   &-title {
@@ -1138,12 +1139,15 @@
       'pic list';
 
     @include media('tablet') {
+      margin-top: 60px;
+      grid-column-gap: 22px;
       grid-template-areas:
         'pic head'
         'list list';
     }
 
     @include media('mobile') {
+      margin-top: 0;
       gap: 25px;
       display: flex;
       flex-direction: column;
@@ -1164,25 +1168,48 @@
     font-size: 30px;
     line-height: 1.5;
     margin: 40px 0 0 0;
+
+    @include media('tablet') {
+      margin-top: 30px;
+    }
+
+    @include media('mobile') {
+      @include font(h4);
+      margin-top: 10px;
+    }
   }
 
   &__note {
     @include font(h4);
     margin: 20px 0 0 0;
-    max-width: 50%;
+    max-width: 48%;
 
     @include media('tablet') {
-      max-width: none;
+      max-width: 80%;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.50;
+    }
+
+    @include media('mobile') {
+      max-width: 83%;
+      @include font(t2);
     }
   }
 
   &__desc {
     @include font(t2);
     margin: 30px 0 0 0;
-    max-width: 60%;
+    max-width: 50%;
 
     @include media('tablet') {
       max-width: none;
+    }
+
+    @include media('mobile') {
+      @include font(t1);
+      max-width: 80%;
+      margin-top: 25px;
     }
   }
 
@@ -1191,6 +1218,7 @@
     font-size: 0;
     line-height: 0;
     color: #FFFFFF;
+    text-align: center;
 
     @include media('tablet') {
       width: 354px;
@@ -1339,6 +1367,7 @@
     }
 
     @include media('mobile') {
+      gap: 30px;
       align-items: stretch;
     }
   }
@@ -1355,6 +1384,12 @@
 
   &__note {
     color: #A4A4A4;
+    max-width: 385px;
+    margin: 0 0 auto;
+
+    @include media('tablet') {
+      max-width: 260px;
+    }
   }
 
   &__text {
@@ -1374,6 +1409,10 @@
     margin: 0;
     padding: 0;
     counter-reset: apr-counter;
+
+    @include media('mobile') {
+      @include font(t1);
+    }
 
     li {
       display: flex;
@@ -1401,11 +1440,16 @@
 
   &__pic {
     flex-shrink: 0;
-    width: 50%;
+    max-width: 57%;
     font-size: 0;
     line-height: 0;
 
+    @include media('tablet') {
+      max-width: 48%;
+    }
+
     @include media('mobile') {
+      max-width: none;
       width: 100%;
     }
 
