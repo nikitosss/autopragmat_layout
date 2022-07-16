@@ -58,6 +58,13 @@ function collapseInit() {
   });
 }
 
+function expandInit() {
+  $('[data-expand]').on('click', function () {
+    $(this).prev().addClass('expand');
+    $(this).hide();
+  });
+}
+
 function swiperInit(selector) {
   $(selector).each(function () {
     const $container = $(this);
@@ -146,6 +153,7 @@ function footerMapInit($container) {
 document.addEventListener('DOMContentLoaded', () => {
   modalInit();
   scrollToInit();
+  expandInit();
   swiperInit('.apr-swiper');
   collapseInit();
   footerMapInit(document.getElementById('footer_map'));

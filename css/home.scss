@@ -1253,6 +1253,7 @@
   }
 
   &__slide {
+    height: auto;
     background: #2C2C2C;
     padding: 40px 40px 50px;
     @include font(t2);
@@ -1328,8 +1329,28 @@
       }
     }
 
+    &-text {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 7;
+
+      @include media('tablet') {
+        -webkit-line-clamp: 9;
+      }
+
+      @include media('mobile') {
+        -webkit-line-clamp: 11;
+      }
+
+      &.expand {
+        -webkit-line-clamp: initial;
+      }
+    }
+
     &-more {
-      background: rgba(red, 0.3);
+      display: inline-block;
+      margin-top: 20px;
       @include media('mobile') {
         @include font(t1);
       }
