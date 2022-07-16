@@ -104,13 +104,13 @@ function youtubeDataInit($container) {
       }
     });
   }, {
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   YdataObserver.observe($container);
 }
 
-function homeSwiperInit(selector) {
+function casesSwiperInit(selector) {
   $(selector).each(function () {
     const $container = $(this);
     const $swiper = $container.find('.swiper');
@@ -127,14 +127,43 @@ function homeSwiperInit(selector) {
       },
       pagination: {
         el: $pagination.get(0),
-        clickable: true
+        clickable: true,
       },
       ...dataOptions,
     });
   });
 }
 
+function teamSwiperInit(selector) {
+  $(selector).each(function () {
+    const $container = $(this);
+    const $swiper = $container.find('.swiper');
+    const $next = $container.find('.swiper-button-next');
+    const $prev = $container.find('.swiper-button-prev');
+    const $pagination = $container.find('.swiper-pagination');
+
+    const swiper = new Swiper($swiper.get(0), {
+      loop: false,
+      navigation: {
+        nextEl: $next.get(0),
+        prevEl: $prev.get(0),
+      },
+      slidesPerView: 3,
+      spaceBetween: 40,
+      breakpoints: {
+        768: {
+          spaceBetween: 20,
+        },
+        320: {
+          slidesPerView: 1,
+        },
+      },
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   youtubeDataInit(document.getElementById('y_data'));
-  homeSwiperInit('.home-swiper');
+  casesSwiperInit('.cases-swiper');
+  teamSwiperInit('.team-swiper');
 });
