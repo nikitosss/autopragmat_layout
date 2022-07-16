@@ -248,25 +248,11 @@
     @include media('tablet') {
       max-width: 375px;
     }
-  }
 
-  &__first {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &__title {
-    @include font(h3);
-    line-height: 1.2;
-    font-size: 26px;
-    margin: 0;
-  }
-
-  &__sub {
-    @include font(t3);
-    max-width: 500px;
-    margin: 10px 0 0;
+    @include media('mobile') {
+      margin-top: 30px;
+      @include font(t1);
+    }
   }
 
   &__list {
@@ -275,12 +261,61 @@
     gap: 40px;
 
     @include media('tablet') {
+      display: flex;
+      flex-direction: column;
       gap: 50px;
-      grid-template-columns: 1fr;
+      max-width: 620px;
+      margin: {
+        top: 58px;
+        left: auto;
+        right: auto;
+      };
     }
 
     @include media('mobile') {
       gap: 60px;
+    }
+  }
+
+  &__first {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include media('tablet') {
+      align-items: center;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    @include media('mobile') {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    @include font(h3);
+    line-height: 1.2;
+    font-size: 26px;
+    margin: 0;
+
+    @include media('mobile') {
+      line-height: 1.4;
+      font-size: 22px;
+    }
+  }
+
+  &__sub {
+    @include font(t3);
+    max-width: 500px;
+    margin: 10px 0 0;
+
+    @include media('tablet') {
+      @include font(t3);
+    }
+
+    @include media('mobile') {
+      @include font(t1);
     }
   }
 
@@ -291,12 +326,13 @@
     padding: 20px 20px 34px 20px;
 
     @include media('tablet') {
-      padding: 30px 38px;
+      padding: 32px 42px;
       cursor: pointer;
     }
 
     @include media('mobile') {
-      padding: 20px 12px;
+      padding: 20px 16px;
+      min-height: 100px;
     }
 
     &::before,
@@ -341,21 +377,34 @@
       @include media('tablet') {
         display: flex;
         gap: 20px;
-
-        &::before {
-          content: '＋';
-          line-height: 1;
-          font-size: 30px;
-          transition: transform 0.2s ease;
-        }
       }
 
       @include media('mobile') {
+        gap: 12px;
         @include font(h4);
 
         &::before {
-          font-size: 25px;
+          font-size: 36px;
+          margin-top: 12px;
         }
+      }
+    }
+
+    &-icon {
+      display: none;
+      transition: transform 0.2s ease;
+
+      @include media('tablet') {
+        display: block;
+        width: 27px;
+        height: 27px;
+        margin-top: 6px;
+      }
+
+      @include media('mobile') {
+        width: 18px;
+        height: 18px;
+        margin-top: 6px;
       }
     }
 
@@ -386,10 +435,8 @@
     }
 
     &.open {
-      #{$item}-title {
-        &::before {
-          transform: rotate(45deg);
-        }
+      #{$item}-icon {
+        transform: rotate(45deg);
       }
       #{$item}-text {
         opacity: 1;
