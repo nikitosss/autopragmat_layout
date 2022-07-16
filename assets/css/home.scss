@@ -885,7 +885,7 @@
 }
 
 .apr-ninth-screen {
-  background: rgba(red, 0.3);
+  //background: rgba(red, 0.3);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -1012,6 +1012,12 @@
         flex-shrink: 0;
         margin: 0;
         position: static;
+        color: #fff;
+        border-color: #CFCFCF;
+
+        &:hover {
+          border-color: var(--swiper-theme-color);
+        }
       }
     }
   }
@@ -1110,6 +1116,12 @@
         flex-shrink: 0;
         margin: 0;
         position: static;
+        color: #fff;
+        border-color: #CFCFCF;
+
+        &:hover {
+          border-color: var(--swiper-theme-color);
+        }
 
         &.swiper-button-disabled {
           opacity: 0.5;
@@ -1309,6 +1321,16 @@
     }
 
     .swiper {
+      &-button-prev,
+      &-button-next {
+        color: #fff;
+        border-color: #CFCFCF;
+
+        &:hover {
+          border-color: var(--swiper-theme-color);
+        }
+      }
+
       &-button-prev {
         left: 0;
       }

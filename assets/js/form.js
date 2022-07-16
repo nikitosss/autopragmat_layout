@@ -1,8 +1,8 @@
 $(async () => {
-  await window.$loadScript('js/jquery.inputmask.bundle.js', true);
-  await window.$loadScript('js/jquery.validate.min.js', true);
-  await window.$loadScript('js/additional-methods.min.js', true);
-  await window.$loadScript('js/select2.min.js', true);
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/jquery.inputmask.bundle.js`, true);
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/jquery.validate.min.js`, true);
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/additional-methods.min.js`, true);
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/select2.min.js`, true);
 
   const decimalPattern = '^[1-9]\\d*((,|\\.)\\d{2})?$';
 
@@ -97,7 +97,7 @@ $(async () => {
     const icon = $(this).data('icon');
     $(this).append(`
       <svg class="apr-icon" viewBox="0 0 22 22" width="22" height="22">
-          <use xlink:href="img/sprite.svg#symbol-${icon}"></use>
+          <use xlink:href="${window.SITE_TEMPLATE_PATH}/assets/img/sprite.svg#symbol-${icon}"></use>
       </svg>
     `);
   });

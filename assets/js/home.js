@@ -107,7 +107,9 @@ function youtubeDataInit($container) {
     threshold: 0.1,
   });
 
-  YdataObserver.observe($container);
+  if ($container) {
+    YdataObserver.observe($container);
+  }
 }
 
 function casesSwiperInit(selector) {

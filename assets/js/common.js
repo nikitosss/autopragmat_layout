@@ -116,7 +116,7 @@ function footerMapInit($container) {
           balloonContentBody: document.querySelector('.apr-address').innerHTML,
         }, {
           iconLayout: 'default#image',
-          iconImageHref: 'img/map_point.svg',
+          iconImageHref: `${window.SITE_TEMPLATE_PATH}/assets/img/map_point.svg`,
           iconImageSize: [60, 68],
           iconImageOffset: [-30, -68],
         })
@@ -157,5 +157,5 @@ document.addEventListener('DOMContentLoaded', () => {
   swiperInit('.apr-swiper');
   collapseInit();
   footerMapInit(document.getElementById('footer_map'));
-  window.$loadScript('js/form.js', true);
+  window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/form.js`, true);
 });
