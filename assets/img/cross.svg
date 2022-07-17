@@ -1,4 +1,6 @@
-<svg viewBox="0 0 25 25" fill="#46A6FF" xmlns="http://www.w3.org/2000/svg">
-  <rect width="33" height="2.5" transform="matrix(0.707103 -0.70711 0.707103 0.70711 0 23.2393)" />
-  <rect width="33" height="2.5" transform="matrix(-0.707103 -0.70711 -0.707103 0.70711 25 23.2393)" />
+<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+  <g id="cross" fill="currentColor">
+    <rect width="33" height="2.5" transform="matrix(0.707103 -0.70711 0.707103 0.70711 0 23.2393)" />
+    <rect width="33" height="2.5" transform="matrix(-0.707103 -0.70711 -0.707103 0.70711 25 23.2393)" />
+  </g>
 </svg>

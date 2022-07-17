@@ -12,28 +12,21 @@ window.$loadScript = (url, async = false, defer = false) =>
   });
 
 function modalInit() {
-  Array.from(document.querySelectorAll('[data-open-modal]')).forEach((element) => {
-    element.addEventListener('click', (event) => {
-      const id = event.target.dataset.openModal;
-      document.getElementById(id).setAttribute('aria-modal', 'true');
-      document.documentElement.setAttribute('aria-modal', 'true');
-    });
+
+  $(document).on('click', '[data-open-modal]', function() {
+    const id = $(this).data('open-modal');
+    document.getElementById(id).setAttribute('aria-modal', 'true');
+    document.documentElement.setAttribute('aria-modal', 'true');
   });
 
-  Array.from(document.querySelectorAll('[data-close-modal]')).forEach((element) => {
-    element.addEventListener('click', (event) => {
-      const id = event.target.dataset.closeModal;
-      document.getElementById(id).setAttribute('aria-modal', 'false');
-      document.documentElement.setAttribute('aria-modal', 'false');
-    });
+  $(document).on('click', '[data-close-modal]', function() {
+    const id = $(this).data('close-modal');
+    document.getElementById(id).setAttribute('aria-modal', 'false');
+    document.documentElement.setAttribute('aria-modal', 'false');
   });
 
-  document.addEventListener('keyup', (e) => {
-    if (e?.key?.toLowerCase() === 'escape') {
-      Array.from(document.querySelectorAll('[aria-modal]')).forEach((element) => {
-        element.setAttribute('aria-modal', 'false');
-      });
-    }
+  $(document).on('keyup', function() {
+    $('[aria-modal]').attr('aria-modal', 'false');
   });
 
   document.documentElement.style.setProperty(

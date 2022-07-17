@@ -142,17 +142,21 @@
       text-decoration: none;
       position: relative;
 
-      &::before {
-        content: '';
-        pointer-events: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: transparent;
-        background-blend-mode: hard-light, normal;
-        transition: background 0.2s ease;
+      &__pic {
+        position: relative;
+
+        &::before {
+          content: '';
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: transparent;
+          background-blend-mode: hard-light, normal;
+          transition: background 0.2s ease;
+        }
       }
 
       &__caption {
@@ -190,9 +194,10 @@
       }
 
       &:hover {
-        &::before {
+        .swiper-slide__pic::before {
           background: rgba(70, 166, 255, 0.25);
         }
+
         .swiper-slide__caption {
           opacity: 1;
         }

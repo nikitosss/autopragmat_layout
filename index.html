@@ -7,7 +7,7 @@
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-  <!--<link rel="manifest" href="manifest.json">-->
+  <!--<link rel="manifest" href="manifest.json" crossorigin="use-credentials">-->
   <title>new autopragmat</title>
   <meta name="description" content="Автопрагмат">
 
@@ -47,7 +47,9 @@
         Оставить заявку
       </button>
     </div>
-    <div class="apr-header__burger" role="button" data-open-modal="burger">☰</div>
+    <svg class="apr-header__burger" width="32" height="25" viewBox="0 0 32 25" data-open-modal="burger">
+      <use xlink:href="assets/img/burger.svg#burger"></use>
+    </svg>
   </div>
 </header>
 <nav class="apr-nav">
@@ -86,7 +88,7 @@
       }'>
         <div class="swiper-wrapper">
           <a class="swiper-slide" href="#">
-            <picture class="apr-pic">
+            <picture class="swiper-slide__pic apr-pic">
               <img class="apr-img apr-img--cover" src="assets/img/s1_1.png" width="939" height="582" alt="s1_1">
             </picture>
             <div class="swiper-slide__caption">
@@ -95,7 +97,7 @@
             </div>
           </a>
           <a class="swiper-slide" href="#">
-            <picture class="apr-pic">
+            <picture class="swiper-slide__pic apr-pic">
               <img class="apr-img apr-img--cover" src="assets/img/s15_1.png" width="730" height="461" alt="s15_1" loading="lazy">
             </picture>
             <div class="swiper-slide__caption">
@@ -103,7 +105,7 @@
             </div>
           </a>
           <a class="swiper-slide" href="#">
-            <picture class="apr-pic">
+            <picture class="swiper-slide__pic apr-pic">
               <img class="apr-img apr-img--cover" src="assets/img/s15_2.png" width="730" height="418" alt="s15_2" loading="lazy">
             </picture>
             <div class="swiper-slide__caption">
@@ -817,8 +819,10 @@
 <div class="apr-burger" id="burger" aria-labelledby="Меню">
   <div class="apr-burger__inner apr-container">
     <div class="apr-burger__header">
-      <div class="apr-burger__title apr-h3">Меню</div>
-      <div class="apr-burger__trigger" role="button" data-close-modal="burger">✖</div>
+      <div class="apr-burger__title">Меню</div>
+      <svg class="apr-burger__trigger" width="25" height="25" viewBox="0 0 25 25" data-close-modal="burger">
+        <use xlink:href="assets/img/cross.svg#cross"></use>
+      </svg>
     </div>
     <div class="apr-call">
       <a class="apr-phone apr-t4 mgo-number-27506" href="tel:+74951201738">+7 (495) 120-17-38</a>
@@ -859,7 +863,9 @@
 <!--Оставить заявку-->
 <div class="apr-modal" id="request_form" aria-labelledby="Оставить заявку">
   <form class="apr-modal__inner apr-modal-form" data-ajax-form="zayavka">
-    <div class="apr-modal__close" role="button" data-close-modal="request_form">✖</div>
+    <svg class="apr-modal__close" width="25" height="25" viewBox="0 0 25 25" data-close-modal="request_form">
+      <use xlink:href="assets/img/cross.svg#cross"></use>
+    </svg>
     <div data-service="">
       <h2 class="apr-modal-form__title">Получите помощь экспертов в подборе авто</h2>
       <div class="apr-modal-form__note">
@@ -916,7 +922,9 @@
 <!--Оплатить заказ-->
 <div class="apr-modal" id="pay_form" aria-labelledby="Оплатить заказ">
   <form class="apr-modal__inner apr-modal-form" method="post" action="/ajax/sber_pay.php" data-ajax-form="oplata">
-    <div class="apr-modal__close" role="button" data-close-modal="pay_form">✖</div>
+    <svg class="apr-modal__close" width="25" height="25" viewBox="0 0 25 25" data-close-modal="pay_form">
+      <use xlink:href="assets/img/cross.svg#cross"></use>
+    </svg>
     <h2 class="apr-modal-form__title" data-service="">Оплатить заказ</h2>
     <h2 class="apr-modal-form__title hide" data-service="Подбор автомобиля">Подбор автомобиля</h2>
     <h2 class="apr-modal-form__title hide" data-service="Выездная диагностика">Выездная диагностика</h2>
