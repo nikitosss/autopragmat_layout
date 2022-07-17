@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 180px;
   padding-bottom: 160px;
+  @include font(t2);
 
   @include media('tablet') {
     gap: 100px;

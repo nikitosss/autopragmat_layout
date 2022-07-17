@@ -34,7 +34,7 @@ body {
   color: #ECECEC;
   font-family: 'Overpass', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.6;
 }
 
@@ -409,6 +409,7 @@ a,
   padding: 0;
   list-style: none;
   color: #767676;
+  @include font(t2);
 
   li {
     display: inline-block;
