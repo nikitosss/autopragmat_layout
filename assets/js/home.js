@@ -153,11 +153,17 @@ function teamSwiperInit(selector) {
       slidesPerView: 3,
       spaceBetween: 40,
       breakpoints: {
-        768: {
-          spaceBetween: 20,
-        },
         320: {
           slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1281: {
+          slidesPerView: 3,
+          spaceBetween: 40,
         },
       },
     });

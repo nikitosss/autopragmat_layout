@@ -108,9 +108,11 @@ h4, .apr-h4 {
   @include font(t1);
 }
 
-a {
+a,
+.apr-link {
   text-decoration: underline;
   color: #91CAFF;
+  cursor: pointer;
   transition: color 0.2s ease;
 
   &:hover {
@@ -402,6 +404,42 @@ a {
   }
 }
 
+.apr-breadcrumb {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #767676;
+
+  li {
+    display: inline-block;
+
+    a {
+      display: inline-block;
+      color: inherit;
+      text-decoration: none;
+      text-transform: lowercase;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+
+      &::after {
+        content: "/";
+        margin: 0 .2rem;
+        text-decoration: none;
+      }
+
+      &:hover span {
+        text-decoration: underline;
+      }
+    }
+
+    &:last-child a::after {
+      display: none;
+    }
+  }
+}
+
 .apr-address {
   color: #ECECEC;
   text-decoration: none;
@@ -537,7 +575,9 @@ a {
 .apr-swiper {
   --swiper-theme-color: #46A6FF;
   position: relative;
-  @include selectNone;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .apr-modal {

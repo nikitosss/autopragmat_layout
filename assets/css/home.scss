@@ -885,7 +885,7 @@
 }
 
 .apr-ninth-screen {
-  //background: rgba(red, 0.3);
+  background: rgba(red, 0.3);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -1044,6 +1044,10 @@
     display: flex;
     gap: 40px;
 
+    @include media('pc') {
+      gap: 20px;
+    }
+
     @include media('tablet') {
       flex-direction: column;
     }
@@ -1073,6 +1077,7 @@
     line-height: 0;
 
     img {
+      width: 100%;
       aspect-ratio: 289 / 281;
     }
   }

@@ -43,7 +43,7 @@ function modalInit() {
 }
 
 function scrollToInit() {
-  $('[data-scroll-to]').on('click', function () {
+  $(document).on('click', '[data-scroll-to]', function() {
     document.getElementById($(this).data('scroll-to')).scrollIntoView({
       block: 'center',
       behavior: 'smooth',
@@ -52,14 +52,14 @@ function scrollToInit() {
 }
 
 function collapseInit() {
-  $('[data-collapse-item]').on('click', function () {
+  $(document).on('click', '[data-collapse-item]', function() {
     $(this).toggleClass('open');
     $(this).find('.apr-second-screen__item-text').slideToggle('slow');
   });
 }
 
 function expandInit() {
-  $('[data-expand]').on('click', function () {
+  $(document).on('click', '[data-expand]', function() {
     $(this).prev().addClass('expand');
     $(this).hide();
   });
