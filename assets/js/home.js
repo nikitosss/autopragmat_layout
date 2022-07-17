@@ -113,60 +113,81 @@ function youtubeDataInit($container) {
 }
 
 function casesSwiperInit(selector) {
-  $(selector).each(function () {
-    const $container = $(this);
-    const $swiper = $container.find('.swiper');
-    const $next = $container.find('.swiper-button-next');
-    const $prev = $container.find('.swiper-button-prev');
-    const $pagination = $container.find('.swiper-pagination');
-    const dataOptions = $swiper.data('swiper') || {};
+  const $container = $(selector);
+  const $swiper = $container.find('.swiper');
+  const $next = $container.find('.swiper-button-next');
+  const $prev = $container.find('.swiper-button-prev');
+  const $pagination = $container.find('.swiper-pagination');
 
-    const swiper = new Swiper($swiper.get(0), {
-      loop: true,
-      navigation: {
-        nextEl: $next.get(0),
-        prevEl: $prev.get(0),
-      },
-      pagination: {
-        el: $pagination.get(0),
-        clickable: true,
-      },
-      ...dataOptions,
-    });
+  const swiper = new Swiper($swiper.get(0), {
+    loop: true,
+    navigation: {
+      nextEl: $next.get(0),
+      prevEl: $prev.get(0),
+    },
+    pagination: {
+      el: $pagination.get(0),
+      clickable: true,
+    },
   });
 }
 
 function teamSwiperInit(selector) {
-  $(selector).each(function () {
-    const $container = $(this);
-    const $swiper = $container.find('.swiper');
-    const $next = $container.find('.swiper-button-next');
-    const $prev = $container.find('.swiper-button-prev');
-    const $pagination = $container.find('.swiper-pagination');
+  const $container = $(selector);
+  const $swiper = $container.find('.swiper');
+  const $next = $container.find('.swiper-button-next');
+  const $prev = $container.find('.swiper-button-prev');
 
-    const swiper = new Swiper($swiper.get(0), {
-      loop: false,
-      navigation: {
-        nextEl: $next.get(0),
-        prevEl: $prev.get(0),
+  const swiper = new Swiper($swiper.get(0), {
+    loop: false,
+    navigation: {
+      nextEl: $next.get(0),
+      prevEl: $prev.get(0),
+    },
+    slidesPerView: 3,
+    spaceBetween: 40,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20,
       },
-      slidesPerView: 3,
-      spaceBetween: 40,
-      breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        1281: {
-          slidesPerView: 3,
-          spaceBetween: 40,
-        },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
       },
-    });
+      1281: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+    },
+  });
+}
+
+function checkingSwiperInit(selector) {
+  const $container = $(selector);
+  const $swiper = $container.find('.swiper');
+  const $next = $container.find('.swiper-button-next');
+  const $prev = $container.find('.swiper-button-prev');
+  const $pagination = $container.find('#checking_swiper_pagination');
+  const $slides = $container.find('.swiper-slide');
+
+  const swiper = new Swiper($swiper.get(0), {
+    loop: true,
+    navigation: {
+      nextEl: $next.get(0),
+      prevEl: $prev.get(0),
+    },
+    slidesPerView: 1,
+    pagination: {
+      el: $pagination.get(0),
+      clickable: true,
+      renderBullet(index, className) {
+        const el = $slides.get(index);
+        const [x, y] = el.dataset.cords.split(':');
+        // return `<circle class="${className}" cx="${x}" cy="${y}" r="16" />`;
+        return `<g class="${className}"><use x="${x}" y="${y}" xlink:href="${window.SITE_TEMPLATE_PATH}/assets/img/note_info.svg#info"></use></g>`;
+      },
+    },
   });
 }
 
@@ -174,4 +195,5 @@ document.addEventListener('DOMContentLoaded', () => {
   youtubeDataInit(document.getElementById('y_data'));
   casesSwiperInit('.cases-swiper');
   teamSwiperInit('.team-swiper');
+  checkingSwiperInit('.checking-swiper');
 });
