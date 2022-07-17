@@ -141,6 +141,19 @@
       text-decoration: none;
       position: relative;
 
+      &::before {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        background-blend-mode: hard-light, normal;
+        transition: background 0.2s ease;
+      }
+
       &__caption {
         color: #FFFFFF;
         line-height: 1.6;
@@ -176,6 +189,9 @@
       }
 
       &:hover {
+        &::before {
+          background: rgba(70, 166, 255, 0.25);
+        }
         .swiper-slide__caption {
           opacity: 1;
         }
@@ -335,9 +351,9 @@
       min-height: 100px;
     }
 
-    &::before,
-    &::after {
-      content: '';
+    &::after,
+    &-img {
+      pointer-events: none;
       position: absolute;
       top: 0;
       left: 0;
@@ -346,28 +362,13 @@
       z-index: -1;
     }
 
-    &::before {
-      transition: transform 0.2s ease;
-    }
-
     &::after {
+      content: '';
       transition: background 0.2s ease;
     }
 
-    &[data-collapse-item='1']::before  {
-      background: url('../img/s2_1.webp') 50% 50% / cover no-repeat;
-    }
-
-    &[data-collapse-item='2']::before  {
-      background: url('../img/s2_2.webp') 50% 50% / cover no-repeat;
-    }
-
-    &[data-collapse-item='3']::before  {
-      background: url('../img/s2_3.webp') 50% 50% / cover no-repeat;
-    }
-
-    &:hover::before {
-      transform: scale(1.1);
+    &-img {
+      transition: transform 0.2s ease;
     }
 
     &-title {
@@ -427,6 +428,10 @@
     &:hover {
       &::after {
         background: rgba(#46A6FF, 0.5);
+      }
+
+      #{$item}-img {
+        transform: scale(1.1);
       }
 
       #{$item}-text {
