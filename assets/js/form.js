@@ -4,6 +4,13 @@ $(async () => {
   await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/additional-methods.min.js`, true);
   await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/select2.min.js`, true);
 
+  try {
+    window.captcha_key = '6Lcam9UbAAAAAI3O-q8IIw-BgHnrVVjg0EHQiZU-';
+    await window.$loadScript(`https://www.google.com/recaptcha/api.js?render=${window.captcha_key}`, true);
+  } catch (e) {
+    console.log(e);
+  }
+
   const decimalPattern = '^[1-9]\\d*((,|\\.)\\d{2})?$';
 
   $.validator.addMethod(
@@ -107,12 +114,6 @@ $(async () => {
     const $form = $select.closest('form');
     $form .find('[data-service]').addClass('hide');
     $form .find(`[data-service="${$select.val()}"]`).removeClass('hide');
-  });
-
-  $('[data-open-modal="request_form"],[data-open-modal="pay_form"]').on('click', async () => {
-    // window.captcha_key = '6Lcam9UbAAAAAI3O-q8IIw-BgHnrVVjg0EHQiZU-';
-    window.captcha_key = '6LctjcggAAAAAMjDO81zSSFDOAnwVpM6S3EX5CWU';
-    await window.$loadScript(`https://www.google.com/recaptcha/api.js?render=${window.captcha_key}`, true);
   });
 
   $('[data-ajax-form="oplata"]').each(function () {

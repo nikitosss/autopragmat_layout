@@ -195,10 +195,35 @@
 }
 
 .apr-page {
-  padding: {
-    top: 50px;
+  margin: {
+    top: 60px;
     bottom: 100px;
   };
+
+  @include media('pc') {
+    overflow-wrap: break-word;
+  }
+
+  @include media('tablet') {
+    margin: {
+      top: 40px;
+      bottom: 60px;
+    };
+  }
+
+  @include media('mobile') {
+    margin: {
+      top: 20px;
+      bottom: 40px;
+    };
+  }
+
+  p {
+    margin: {
+      top: 0;
+      bottom: 2em;
+    };
+  }
 }
 
 .apr-footer {

@@ -36,6 +36,14 @@ body {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.6;
+
+  @include media('tablet') {
+    @include font(t3);
+  }
+
+  @include media('mobile') {
+    @include font(t2);
+  }
 }
 
 .grecaptcha-badge {
@@ -78,14 +86,34 @@ body {
 
 h1, .apr-h1 {
   @include font(h1);
+
+  @include media('tablet') {
+    @include font(h2);
+  }
+
+  @include media('mobile') {
+    @include font(h3);
+  }
 }
 
 h2, .apr-h2 {
   @include font(h2);
+
+  @include media('tablet') {
+    @include font(h3);
+  }
+
+  @include media('mobile') {
+    @include font(h4);
+  }
 }
 
 h3, .apr-h3 {
   @include font(h3);
+
+  @include media('tablet') {
+    @include font(h4);
+  }
 }
 
 h4, .apr-h4 {
