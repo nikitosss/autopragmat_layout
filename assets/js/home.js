@@ -114,13 +114,18 @@ function youtubeDataInit($container) {
 
 function casesSwiperInit(selector) {
   const $container = $(selector);
-  const $swiper = $container.find('.swiper');
+  const $swiper1 = $container.find('.apr-fifth-screen__swiper1');
+  const $swiper2 = $container.find('.apr-fifth-screen__swiper2');
   const $next = $container.find('.swiper-button-next');
   const $prev = $container.find('.swiper-button-prev');
   const $pagination = $container.find('.swiper-pagination');
 
-  const swiper = new Swiper($swiper.get(0), {
-    loop: true,
+  const swiper1 = new Swiper($swiper1.get(0), {
+    loop: false,
+  });
+
+  const swiper2 = new Swiper($swiper2.get(0), {
+    loop: false,
     navigation: {
       nextEl: $next.get(0),
       prevEl: $prev.get(0),
@@ -130,6 +135,12 @@ function casesSwiperInit(selector) {
       clickable: true,
     },
   });
+
+  console.log(swiper1);
+  console.log(swiper2);
+
+  swiper1.controller.control = swiper2;
+  swiper2.controller.control = swiper1;
 }
 
 function teamSwiperInit(selector) {
@@ -184,7 +195,7 @@ function checkingSwiperInit(selector) {
       renderBullet(index, className) {
         const el = $slides.get(index);
         const [x, y] = el.dataset.cords.split(':');
-        // return `<circle class="${className}" cx="${x}" cy="${y}" r="16" />`;
+
         return `<g class="${className}"><use x="${x}" y="${y}" xlink:href="${window.SITE_TEMPLATE_PATH}/assets/img/note_info.svg#info"></use></g>`;
       },
     },
