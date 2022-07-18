@@ -374,6 +374,8 @@
     }
 
     &-img {
+      width: 100%;
+      height: 100%;
       transition: transform 0.2s ease;
     }
 
@@ -1150,6 +1152,8 @@
     display: none;
 
     .swiper {
+      padding-bottom: 1px;
+
       &-button-prev,
       &-button-next {
         flex-shrink: 0;
@@ -1320,6 +1324,7 @@
 
   &__swiper {
     grid-area: swiper;
+    width: 100%;
 
     @include media('tablet') {
       margin: 0 auto;
@@ -1478,6 +1483,7 @@
 
     &-text {
       overflow: hidden;
+      text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 7;
