@@ -1482,22 +1482,11 @@
     }
 
     &-text {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 7;
-
-      @include media('tablet') {
-        -webkit-line-clamp: 9;
-      }
-
-      @include media('mobile') {
-        -webkit-line-clamp: 11;
-      }
+      height: 14em;
 
       &.expand {
-        -webkit-line-clamp: initial;
+        height: auto;
+        -webkit-line-clamp: initial !important;
       }
     }
 

@@ -54,6 +54,9 @@ function collapseInit() {
 }
 
 function expandInit() {
+  $('[data-clamp]').each(function () {
+    $clamp($(this).get(0), { clamp: $(this).data('clamp') });
+  });
   $(document).on('click', '[data-expand]', function() {
     $(this).prev().addClass('expand');
     $(this).hide();
