@@ -25,8 +25,10 @@ function modalInit() {
     document.documentElement.setAttribute('aria-modal', 'false');
   });
 
-  $(document).on('keyup', function() {
-    $('[aria-modal]').attr('aria-modal', 'false');
+  $(document).on('keyup', function(e) {
+    if (e?.key?.toLowerCase() === 'escape') {
+      $('[aria-modal]').attr('aria-modal', 'false');
+    }
   });
 
   document.documentElement.style.setProperty(

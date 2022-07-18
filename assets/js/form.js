@@ -112,8 +112,8 @@ $(async () => {
   $('[data-services="select"]').on('change', function () {
     const $select = $(this);
     const $form = $select.closest('form');
-    $form .find('[data-service]').addClass('hide');
-    $form .find(`[data-service="${$select.val()}"]`).removeClass('hide');
+    $form.find('[data-service]').addClass('hide');
+    $form.find(`[data-service="${$select.val()}"]`).removeClass('hide');
   });
 
   $('[data-ajax-form="oplata"]').each(function () {
@@ -122,23 +122,35 @@ $(async () => {
         return true;
       },
       submitHandler(form) {
-        const $button = $(form).find('[type=submit]');
+        const $form = $(form);
+        const $button = $form.find('[type=submit]');
+        const errorHandler = (e) => {
+          console.error('oplata', e);
+          const repeat = confirm('Ошибка! Что-то пошло не так. Повторить попытку?');
+          if (repeat) {
+            $form.trigger('submit');
+          }
+        };
 
         $button.prop('disabled', true);
 
-        grecaptcha.ready(() => {
-          grecaptcha.execute(window.captcha_key, {
-            action: 'oplata'
-          }).then((token) => {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'g-recaptcha-response';
-            input.value = token.toString();
-            form.appendChild(input);
-            $button.prop('disabled', false);
-            form.submit();
+        try {
+          grecaptcha.ready(() => {
+            grecaptcha.execute(window.captcha_key, {
+              action: 'oplata'
+            }).then((token) => {
+              const input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = 'g-recaptcha-response';
+              input.value = token.toString();
+              form.appendChild(input);
+              $button.prop('disabled', false);
+              form.submit();
+            }).catch(errorHandler);
           });
-        });
+        } catch (e) {
+          errorHandler(e)
+        }
       }
     });
   });
@@ -151,40 +163,52 @@ $(async () => {
       submitHandler(form) {
         const $form = $(form);
         const $button = $form.find('[type=submit]');
+        const errorHandler = (e) => {
+          console.error('zayavka', e);
+          const repeat = confirm('Ошибка! Что-то пошло не так. Повторить попытку?');
+          if (repeat) {
+            $form.trigger('submit');
+          }
+        };
 
         $button.prop('disabled', true);
 
-        grecaptcha.ready(() => {
-          grecaptcha.execute(window.captcha_key, {
-            action: 'zayavka'
-          }).then((token) => {
-            const data = new FormData(form);
-            data.append('g-recaptcha-response', token.toString());
+        try {
+          grecaptcha.ready(() => {
+            grecaptcha.execute(window.captcha_key, {
+              action: 'zayavka'
+            }).then((token) => {
+              const data = new FormData(form);
+              data.append('g-recaptcha-response', token.toString());
 
-            $.ajax({
-              data,
-              url: '/ajax/zayavka.php',
-              type: 'post',
-              dataType: 'json',
-              cache: false,
-              contentType: false,
-              processData: false,
-              success() {
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                  'event': "gtm.usluga",
-                  'usluga': data.get('USLUGA')
-                });
-              },
-              error(e) {
-                console.error(e);
-              },
-              complete() {
-                $button.prop('disabled', false);
-              },
-            });
+              $.ajax({
+                data,
+                url: '/ajax/zayavka.php',
+                type: 'post',
+                dataType: 'json',
+                cache: false,
+                contentType: false,
+                processData: false,
+                success(respData) {
+                  window.dataLayer = window.dataLayer || [];
+                  window.dataLayer.push({
+                    'event': "gtm.usluga",
+                    'usluga': data.get('USLUGA')
+                  });
+                  if (respData.message) {
+                    alert(respData.message);
+                  }
+                },
+                complete() {
+                  $button.prop('disabled', false);
+                },
+                error: errorHandler,
+              });
+            }).catch(errorHandler);
           });
-        });
+        } catch (e) {
+          errorHandler(e)
+        }
       }
     });
   });
