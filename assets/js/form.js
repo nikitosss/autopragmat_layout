@@ -116,6 +116,11 @@ $(async () => {
     $form.find(`[data-service="${$select.val()}"]`).removeClass('hide');
   });
 
+  $(document).on('click', '[data-open-modal="request_form"]', function() {
+    const selectedService = $(this).data('service');
+    $(`[data-services="select"] option:contains("${selectedService}")`).trigger('select');
+  });
+
   $('[data-ajax-form="oplata"]').each(function () {
     $(this).validate({
       errorPlacement() {

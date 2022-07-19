@@ -117,9 +117,15 @@
   background: #1E1E1E;
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 12;
   //border-bottom: 1px solid #414141;
+  transform: translateY(0);
+  transition: transform .2s ease;
   @include font(t3);
+
+  &--hide {
+    transform: translateY(-100%);
+  }
 
   &__inner {
     display: flex;
@@ -214,7 +220,6 @@
 
   p {
     margin: {
-      top: 0;
       bottom: 2em;
     };
   }

@@ -2,24 +2,6 @@
 @import '../node_modules/normalize.css/normalize';
 @import '../node_modules/swiper/swiper-bundle.min';
 
-:root {
-  --scroll-bar-width: 0;
-  --Blue1: #46A6FF;
-  --Blue2: #91CAFF;
-  --Blue3: #3784CC;
-  --Blue4: #225380;
-  --Blue5: #496580;
-  --GrayStroke1: #CFCFCF;
-  --Gray2: #A4A4A4;
-  --Gray3: #767676;
-  --Gray4: #767676;
-  --Gra5: #414141;
-  --textColor: #ECECEC;
-  --inputColor: #EBEBEB;
-  --BlackBG2: #282828;
-  --MainBlackBG: #1E1E1E;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -290,6 +272,8 @@ a,
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
+  display: inline-block;
+  text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
   border: none;
@@ -535,34 +519,39 @@ a,
 .swiper {
   &-button {
     &-next, &-prev {
-      --swiper-navigation-size: 36px;
-      font-family: Arial, serif;
       width: 83px;
       height: 45px;
       border: 1px solid var(--swiper-theme-color);
       outline: none;
       display: inline-flex;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
       transition: all 0.2s ease;
+
+      &::after {
+        font-size: 0;
+        line-height: 0;
+      }
+
+      svg {
+        height: 15px;
+        width: 36px;
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.5;
+        cursor: auto;
+        pointer-events: none;
+      }
 
       &:hover {
         background: var(--swiper-theme-color);
         color: #FFFFFF;
       }
-
-      &.swiper-button-disabled {
-        opacity: 1;
-        cursor: auto;
-        pointer-events: auto;
-      }
     }
 
-    &-prev::after {
-      content: '←';
-    }
-
-    &-next::after {
-      content: '→';
+    &-prev svg {
+      transform: rotate(180deg);
     }
   }
 
@@ -610,7 +599,7 @@ a,
 }
 
 .apr-modal {
-  z-index: 4;
+  z-index: 14;
   position: fixed;
   top: 0;
   left: 0;

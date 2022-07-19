@@ -136,9 +136,6 @@ function casesSwiperInit(selector) {
     },
   });
 
-  console.log(swiper1);
-  console.log(swiper2);
-
   swiper1.controller.control = swiper2;
   swiper2.controller.control = swiper1;
 }
@@ -202,9 +199,26 @@ function checkingSwiperInit(selector) {
   });
 }
 
+function animateInit(selector) {
+  const myObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('apr-animated')
+      }
+    })
+  }, {
+    threshold: 1,
+  })
+
+  $(selector).each(function () {
+    myObserver.observe($(this).get(0))
+  })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   youtubeDataInit(document.getElementById('y_data'));
   casesSwiperInit('.cases-swiper');
   teamSwiperInit('.team-swiper');
   checkingSwiperInit('.checking-swiper');
+  animateInit('.apr-animate');
 });

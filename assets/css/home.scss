@@ -556,6 +556,8 @@
 }
 
 .apr-fourth-screen {
+  $screen: &;
+
   &__head {
     display: flex;
     justify-content: space-between;
@@ -652,6 +654,26 @@
       @include font(t1);
     }
   }
+
+  &.apr-animate {
+    #{$screen}__desc {
+      opacity: 0;
+      transform: translateY(100%);
+      transition: transform 0.5s, opacity 0.5s;
+
+      @include media('tablet') {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    &.apr-animated {
+      #{$screen}__desc {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
 }
 
 .apr-fifth-screen {
@@ -723,6 +745,20 @@
     picture {
       font-size: 0;
       line-height: 0;
+
+      &:last-child {
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: #2C2C2C;
+          opacity: 0.8;
+        }
+      }
     }
 
     img {
@@ -760,13 +796,20 @@
     }
 
     &-grid {
+      min-height: 430px;
       display: grid;
       grid-template-columns: minmax(0, 50%) minmax(0, 50%);
       grid-gap: 20px 40px;
+      grid-template-areas:
+        'req opinion'
+        'res opinion';
 
       @include media('tablet') {
         grid-template-columns: minmax(0, 70%) minmax(0, 30%);
         grid-gap: 40px 20px;
+        grid-template-areas:
+        'req res'
+        'opinion res';
       }
 
       @include media('mobile') {
@@ -814,6 +857,19 @@
       margin: 10px 0;
     }
 
+
+    &-req {
+      grid-area: req;
+    }
+
+    &-res {
+      grid-area: res;
+    }
+
+    &-opinion {
+      grid-area: opinion;
+    }
+
     &-price {
       display: inline-flex;
       flex-direction: column;
@@ -824,6 +880,7 @@
       font-size: 18px;
       line-height: 1.5;
       min-width: 264px;
+      margin-top: 25px;
 
       span {
         white-space: nowrap;
@@ -892,7 +949,7 @@
         @include media('tablet') {
           background: #1E1E1E;
           position: absolute;
-          top: 42%;
+          top: 30%;
         }
 
         @include media('mobile') {
@@ -937,6 +994,8 @@
 }
 
 .apr-sixth-screen {
+  $screen: &;
+
   &__head {
     background: url('../img/s6_desktop.webp') 50% 50% / cover no-repeat;
     padding: {
@@ -1039,6 +1098,26 @@
       }
     }
   }
+
+  &.apr-animate {
+    #{$screen}__inner {
+      opacity: 0;
+      transform: translateY(100%);
+      transition: transform 0.5s, opacity 0.5s;
+
+      @include media('tablet') {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    &.apr-animated {
+      #{$screen}__inner {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
 }
 
 .apr-ninth-screen {
@@ -1065,6 +1144,12 @@
 
     .swiper-pagination-bullet {
       color: #FFFFFF;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+
+      &-active {
+        opacity: 1;
+      }
     }
   }
 
@@ -1358,6 +1443,8 @@
 }
 
 .apr-twelfth-screen {
+  $screen: &;
+
   &__list {
     margin-top: 40px;
     display: grid;
@@ -1406,6 +1493,26 @@
 
     @include media('mobile') {
       @include font(t1);
+    }
+  }
+
+  &.apr-animate {
+    #{$screen}__desc {
+      opacity: 0;
+      transform: translateY(100%);
+      transition: transform 0.5s, opacity 0.5s;
+
+      @include media('tablet') {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    &.apr-animated {
+      #{$screen}__desc {
+        opacity: 1;
+        transform: translateY(0px);
+      }
     }
   }
 }
