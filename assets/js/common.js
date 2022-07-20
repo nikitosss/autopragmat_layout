@@ -63,9 +63,10 @@ function expandInit() {
 }
 
 function stickyInit() {
-  $(window).on('wheel', (e) => {
-    if (e.originalEvent.deltaY > 0) $('.apr-nav').addClass('apr-nav--hide');
+  $(window).on('scroll', (e) => {
+    if (this.oldScroll < this.scrollY) $('.apr-nav').addClass('apr-nav--hide');
     else $('.apr-nav').removeClass('apr-nav--hide');
+    this.oldScroll = this.scrollY;
   });
 }
 

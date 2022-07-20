@@ -1,0 +1,79 @@
+@import '_settings';
+
+.apr-team {
+
+  &__filter {
+    margin: 40px 0;
+    white-space: nowrap;
+    overflow-x: auto;
+
+    @include media('tablet') {
+      margin: 20px 0;
+    }
+
+    ul {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+
+    @include media('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @include media('mobile') {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    height: auto;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #414141;
+
+    @include media('mobile') {
+      max-width: 290px;
+    }
+
+    &-pic {
+      font-size: 0;
+      line-height: 0;
+
+      img {
+        width: 100%;
+        aspect-ratio: 288 / 280;
+      }
+    }
+
+    &-desc {
+      padding: 18px 14px 22px;
+
+      @include media('tablet') {
+        padding: 14px;
+      }
+    }
+
+    &-name {
+      margin: 0 0 10px;
+      @include font(h3);
+
+      @include media('tablet') {
+        margin: 0 0 5px;
+        @include font(t4);
+      }
+    }
+
+    &-sub {
+      @include font(t2);
+    }
+  }
+}
