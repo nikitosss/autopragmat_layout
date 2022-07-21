@@ -27,7 +27,6 @@
   <script>window.SITE_TEMPLATE_PATH = './';</script>
   <script src="assets/js/jquery.min.js" type="text/javascript"></script>
   <script src="assets/js/swiper-bundle.min.js" type="text/javascript"></script>
-  <script src="assets/js/clamp.min.js" type="text/javascript"></script>
   <script src="assets/js/common.js" type="text/javascript"></script>
   <script src="assets/js/home.js" type="text/javascript"></script>
 </head>
@@ -63,9 +62,10 @@
           <li><a href="/services/spetsialist-na-den/">Специалист на день</a></li>
         </ul>
       </li>
+      <li><a href="/blog/">Полезные материалы</a></li>
       <li><a href="/catalog/">Каталог моделей</a></li>
-      <li><a href="/calculator/">Калькулятор</a></li>
       <li><a href="/cases/">Уже подобрали</a></li>
+      <li><a href="/calculator/">Калькулятор</a></li>
       <li><a href="/team/">Команда</a></li>
       <li><a href="/contacts/">Контакты</a></li>
     </ul>
@@ -128,7 +128,7 @@
     </div>
   </section>
   <section class="apr-second-screen apr-container">
-    <h2 class="apr-home-title apr-h4">Поиск автомобиля на вторичном рынке связан с рисками</h2>
+    <h2 class="apr-home-title">Поиск автомобиля на вторичном рынке связан с рисками</h2>
     <p class="apr-second-screen__note">
       На рынке до сих пор есть машины в залоге или угоне, со скрученным пробегом или восстановленные после серьёзных ДТП.
       Продавцы могут скрыть информацию, а чтобы выяснить правду, потребуется время.
@@ -488,7 +488,7 @@
     </div>
   </section>
   <section class="apr-tenth-screen apr-container">
-    <h2 class="apr-home-title apr-h4">Команда Автопрагмата</h2>
+    <h2 class="apr-home-title">Команда Автопрагмата</h2>
     <p class="apr-tenth-screen__note">
       В Автопрагмате каждый занимается своим делом. Помимо специалиста по подбору, у вас будет персональный менеджер, который поможет решить все организационные
       вопросы и займётся документами. Приезжайте к нам в офис, чтобы познакомиться лично.
@@ -546,7 +546,7 @@
     </div>
   </section>
   <section class="apr-twelfth-screen apr-container apr-animate">
-    <h2 class="apr-home-title apr-h4">Гарантии</h2>
+    <h2 class="apr-home-title">Гарантии</h2>
     <ul class="apr-twelfth-screen__list apr-list">
       <li>
         <picture class="apr-twelfth-screen__pic apr-pic">
@@ -601,6 +601,7 @@
             "slidesPerView": 1,
             "breakpoints": {
               "1024": {
+                "allowTouchMove": false,
                 "slidesPerView": 2,
                 "spaceBetween": 40
               }
@@ -735,7 +736,7 @@
     </div>
   </section>
   <section id="y_data" class="apr-fourteenth-screen apr-container">
-    <h2 class="apr-home-title apr-h4">Экспертный канал на YouTube</h2>
+    <h2 class="apr-home-title">Экспертный канал на YouTube</h2>
     <div class="apr-fourteenth-screen__grid">
       <div class="apr-fourteenth-screen__head">
         <h3 class="apr-fourteenth-screen__name">Стас Асафьев</h3>
@@ -754,7 +755,7 @@
     </div>
   </section>
   <section id="services" class="apr-fifteenth-screen apr-container">
-    <h2 class="apr-home-title apr-h4">Другие услуги</h2>
+    <h2 class="apr-home-title">Другие услуги</h2>
     <div class="apr-fifteenth-screen__blocks">
       <div class="apr-fifteenth-screen__block">
         <div class="apr-fifteenth-screen__side">
@@ -810,14 +811,14 @@
       <span>Cервис по подбору автомобилей с пробегом</span>
     </div>
     <ul class="apr-footer__menu apr-menu">
-      <li><a class="apr-menu-item" href="/catalog/">Каталог моделей</a></li>
       <li><a class="apr-menu-item" href="/services/podbor-avtomobilya/">Подбор автомобиля</a></li>
       <li><a class="apr-menu-item" href="/services/vyezdnaya-diagnostika/">Выездная диагностика</a></li>
       <li><a class="apr-menu-item" href="/services/spetsialist-na-den/">Специалист на день</a></li>
-      <li><a class="apr-menu-item" href="/#services">Услуги</a></li>
+      <li><a class="apr-menu-item" href="/blog/">Полезные материалы</a></li>
+      <li><a class="apr-menu-item" href="/catalog/">Каталог моделей</a></li>
       <li><a class="apr-menu-item" href="/cases/">Уже подобрали</a></li>
-      <li><a class="apr-menu-item" href="/team/">Команда</a></li>
       <li><a class="apr-menu-item" href="/calculator/">Калькулятор</a></li>
+      <li><a class="apr-menu-item" href="/team/">Команда</a></li>
     </ul>
     <button class="apr-footer__request apr-button apr-button--type1 apr-request apr-t2" type="button" data-open-modal="request_form">
       Оставить заявку
@@ -864,14 +865,14 @@
       <div class="apr-work_time apr-t2">с&nbsp;10:00 до&nbsp;20:00 без выходных</div>
     </div>
     <ul class="apr-burger__menu apr-menu apr-t1">
-      <li><a class="apr-menu-item" href="/catalog/">Каталог моделей</a></li>
       <li><a class="apr-menu-item" href="/services/podbor-avtomobilya/">Подбор автомобиля</a></li>
       <li><a class="apr-menu-item" href="/services/vyezdnaya-diagnostika/">Выездная диагностика</a></li>
       <li><a class="apr-menu-item" href="/services/spetsialist-na-den/">Специалист на день</a></li>
-      <li><a class="apr-menu-item" href="/#services">Услуги</a></li>
+      <li><a class="apr-menu-item" href="/blog/">Полезные материалы</a></li>
+      <li><a class="apr-menu-item" href="/catalog/">Каталог моделей</a></li>
       <li><a class="apr-menu-item" href="/cases/">Уже подобрали</a></li>
-      <li><a class="apr-menu-item" href="/team/">Команда</a></li>
       <li><a class="apr-menu-item" href="/calculator/">Калькулятор</a></li>
+      <li><a class="apr-menu-item" href="/team/">Команда</a></li>
     </ul>
     <div class="apr-burger__buttons">
       <button class="apr-button apr-button--type1 apr-request apr-t2" type="button" data-open-modal="request_form">

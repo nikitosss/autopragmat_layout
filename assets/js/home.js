@@ -122,6 +122,11 @@ function casesSwiperInit(selector) {
 
   const swiper1 = new Swiper($swiper1.get(0), {
     loop: false,
+    breakpoints: {
+      1024: {
+        allowTouchMove: false,
+      },
+    },
   });
 
   const swiper2 = new Swiper($swiper2.get(0), {
@@ -133,6 +138,11 @@ function casesSwiperInit(selector) {
     pagination: {
       el: $pagination.get(0),
       clickable: true,
+    },
+    breakpoints: {
+      1024: {
+        allowTouchMove: false,
+      },
     },
   });
 
@@ -166,6 +176,7 @@ function teamSwiperInit(selector) {
       1281: {
         slidesPerView: 3,
         spaceBetween: 40,
+        allowTouchMove: false,
       },
     },
   });
@@ -194,6 +205,11 @@ function checkingSwiperInit(selector) {
         const [x, y] = el.dataset.cords.split(':');
 
         return `<g class="${className}"><use x="${x}" y="${y}" xlink:href="${window.SITE_TEMPLATE_PATH}/assets/img/note_info.svg#info"></use></g>`;
+      },
+    },
+    breakpoints: {
+      1024: {
+        allowTouchMove: false,
       },
     },
   });

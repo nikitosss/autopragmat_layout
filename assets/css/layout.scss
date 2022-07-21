@@ -9,12 +9,9 @@
 
   &--hide {
     transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
 
     @include media('mobile') {
-      opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0%);
     }
   }
 }
@@ -449,7 +446,7 @@
   right: 0;
   bottom: 0;
   background: #282828;
-  z-index: 3;
+  z-index: 14;
   overflow-y: auto;
   transform: translateX(-100%);
   transition: transform 0.2s ease;

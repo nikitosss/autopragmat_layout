@@ -20,6 +20,7 @@
     border-bottom: 1px solid #414141;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    @include font(h2);
   }
 
   section {
@@ -130,7 +131,19 @@
   }
 
   &__controls {
-    opacity: 0;
+    .swiper-button-prev,
+    .swiper-button-next {
+      opacity: 0;
+      transition: opacity 0.2s ease;
+
+      @include media('mobile') {
+        display: none;
+      }
+    }
+    .swiper-pagination {
+      position: static;
+      margin-top: 20px;
+    }
   }
 
   &__swiper {
@@ -145,8 +158,10 @@
 
     &:hover {
       #{$screen}__controls {
-        opacity: 1;
-        transition: opacity 0.2s ease;
+        .swiper-button-prev,
+        .swiper-button-next {
+          opacity: 1;
+        }
       }
     }
 
@@ -723,6 +738,7 @@
     @include font(t2);
 
     @include media('mobile') {
+      width: auto;
       margin: 10px 0;
       @include font(t1);
     }

@@ -2,18 +2,40 @@
 
 .apr-team {
 
+  &__title {
+    text-align: center;
+  }
+
   &__filter {
     margin: 40px 0;
     white-space: nowrap;
     overflow-x: auto;
+    padding-bottom: 10px;
+
+    &::after {
+      content: '';
+      font-size: 0;
+      line-height: 0;
+      display: block;
+      border-bottom: 1px solid #414141;
+      margin-top: -1px;
+    }
 
     @include media('tablet') {
       margin: 20px 0;
     }
 
     ul {
-      display: flex;
-      gap: 20px;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        margin-right: 20px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
     }
   }
 

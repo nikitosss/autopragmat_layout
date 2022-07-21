@@ -63,15 +63,16 @@ function expandInit() {
 }
 
 function stickyInit(className) {
-  $(window).on('scroll', () => {
-    const $el = $(`.${className}`);
-    const hideClassName = `${className}--hide`;
-
-    if (this.oldScroll < this.scrollY) $el.addClass(hideClassName);
+  const $el = $(`.${className}`);
+  const hideClassName = `${className}--hide`;
+  const toggleClass = () => {
+    if (oldScroll < this.scrollY && this.scrollY > $el.height()) $el.addClass(hideClassName);
     else $el.removeClass(hideClassName);
+    oldScroll = this.scrollY;
+  };
+  let oldScroll = 0;
 
-    this.oldScroll = this.scrollY;
-  });
+  $(window).on('scroll', $.throttle( 300, toggleClass ));
 }
 
 function swiperInit(selector) {
@@ -92,6 +93,11 @@ function swiperInit(selector) {
       pagination: {
         el: $pagination.get(0),
         clickable: true
+      },
+      breakpoints: {
+        1024: {
+          allowTouchMove: false,
+        },
       },
       ...dataOptions,
     });
@@ -165,13 +171,15 @@ function footerMapInit($container) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+$(async () => {
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/jquery.ba-throttle-debounce.min.js`, true);
   modalInit();
   scrollToInit();
-  expandInit();
   stickyInit('apr-sticky');
   collapseInit();
   swiperInit('.apr-swiper');
   footerMapInit(document.getElementById('footer_map'));
-  window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/form.js`, true);
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/clamp.min.js`, true);
+  expandInit();
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/form.js`, true);
 });
