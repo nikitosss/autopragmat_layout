@@ -130,7 +130,8 @@
 
   &__inner {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    column-gap: 20px;
     padding-top: 8px;
     @include container();
 

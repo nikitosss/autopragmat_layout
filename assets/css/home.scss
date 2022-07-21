@@ -20,7 +20,6 @@
     border-bottom: 1px solid #414141;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    @include font(h2);
   }
 
   section {
@@ -925,6 +924,9 @@
     }
 
     &-all {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       color: #46A6FF;
       border: 1px solid;
       padding: 26px 0;
@@ -933,6 +935,15 @@
       text-decoration: none;
       margin-top: 60px;
       @include font(t3);
+
+      @include media('tablet') {
+        width: 100%;
+        margin-top: 20px;
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     &-last {
@@ -1200,20 +1211,13 @@
   }
 
   &__pic {
-    //align-self: end;
     grid-area: pic;
-    margin: 0 auto;
-    position: relative;
-    aspect-ratio: 757 / 567;
+    margin: auto auto 0;
     width: 100%;
-    max-width: 757px;
 
     svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      width: 100%;
+      max-width: 757px;
     }
 
     @include media('tablet') {
@@ -1323,11 +1327,8 @@
     max-width: 610px;
     @include font(t2);
 
-    @include media('tablet') {
-      margin-bottom: 58px;
-    }
-
     @include media('mobile') {
+      margin: 20px 0;
       @include font(t1);
     }
   }
@@ -2052,6 +2053,7 @@
         font-size: 15px;
         line-height: 1.6;
         color: #46A6FF;
+        min-width: 2.2em;
       }
     }
   }
