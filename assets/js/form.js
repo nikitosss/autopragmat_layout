@@ -1,16 +1,20 @@
-$(async () => {
-  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/jquery.inputmask.bundle.js`, true);
-  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/jquery.validate.min.js`, true);
-  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/additional-methods.min.js`, true);
-  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/select2.min.js`, true);
+function layoutInit() {
+  $('textarea').on('input', (e) => {
+    e.target.style.height = '1px';
+    e.target.style.height = e.target.scrollHeight + 'px';
+  });
 
-  try {
-    window.captcha_key = '6Lcam9UbAAAAAI3O-q8IIw-BgHnrVVjg0EHQiZU-';
-    await window.$loadScript(`https://www.google.com/recaptcha/api.js?render=${window.captcha_key}`, true);
-  } catch (e) {
-    console.log(e);
-  }
+  $('label[data-icon]').each(function () {
+    const icon = $(this).data('icon');
+    $(this).append(`
+      <svg class="apr-icon" viewBox="0 0 22 22" width="22" height="22">
+          <use xlink:href="${window.SITE_TEMPLATE_PATH}/assets/img/sprite.svg#symbol-${icon}"></use>
+      </svg>
+    `);
+  });
+}
 
+function validatorAndMaskInit() {
   const decimalPattern = '^[1-9]\\d*((,|\\.)\\d{2})?$';
 
   $.validator.addMethod(
@@ -74,7 +78,9 @@ $(async () => {
   $(':input[autocomplete="name"]').inputmask('Regex', {
     regex: '^[a-zA-Zа-яА-ЯёЁ\-\\s]+',
   });
+}
 
+function select2Init() {
   $('.apr-select:not([multiple])').select2({
     minimumResultsForSearch: Infinity,
   });
@@ -94,20 +100,24 @@ $(async () => {
       $select2.find('.select2-selection__rendered').after(`<div class="counter">Выбрано ${counter}</div>`);
     }
   });
+}
 
-  $('textarea').on('input', (e) => {
-    e.target.style.height = '1px';
-    e.target.style.height = e.target.scrollHeight + 'px';
-  });
+$(async () => {
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/jquery.inputmask.bundle.js`, true);
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/jquery.validate.min.js`, true);
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/additional-methods.min.js`, true);
+  await window.$loadScript(`${window.SITE_TEMPLATE_PATH}/assets/js/select2.min.js`, true);
 
-  $('label[data-icon]').each(function () {
-    const icon = $(this).data('icon');
-    $(this).append(`
-      <svg class="apr-icon" viewBox="0 0 22 22" width="22" height="22">
-          <use xlink:href="${window.SITE_TEMPLATE_PATH}/assets/img/sprite.svg#symbol-${icon}"></use>
-      </svg>
-    `);
-  });
+  try {
+    window.captcha_key = '6Lcam9UbAAAAAI3O-q8IIw-BgHnrVVjg0EHQiZU-';
+    await window.$loadScript(`https://www.google.com/recaptcha/api.js?render=${window.captcha_key}`, true);
+  } catch (e) {
+    console.error(e);
+  }
+
+  layoutInit();
+  validatorAndMaskInit();
+  select2Init();
 
   $('[data-services="select"]').on('change', function () {
     const $select = $(this);
@@ -116,10 +126,6 @@ $(async () => {
     $form.find(`[data-service="${$select.val()}"]`).removeClass('hide');
   });
 
-  $(document).on('click', '[data-open-modal="request_form"]', function() {
-    const selectedService = $(this).data('service');
-    $(`[data-services="select"] option:contains("${selectedService}")`).trigger('select');
-  });
 
   $('[data-ajax-form="oplata"]').each(function () {
     $(this).validate({
@@ -160,61 +166,71 @@ $(async () => {
     });
   });
 
-  $('[data-ajax-form="zayavka"]').each(function () {
-    $(this).validate({
-      errorPlacement() {
-        return true;
-      },
-      submitHandler(form) {
-        const $form = $(form);
-        const $button = $form.find('[type=submit]');
-        const errorHandler = (e) => {
-          console.error('zayavka', e);
-          const repeat = confirm('Ошибка! Что-то пошло не так. Повторить попытку?');
-          if (repeat) {
-            $form.trigger('submit');
-          }
-        };
+  (function (formID){
+    $(document).on('click', `[data-open-modal="${formID}"]`, function() {
+      const serviceName = $(this).data('service');
 
-        $button.prop('disabled', true);
-
-        try {
-          grecaptcha.ready(() => {
-            grecaptcha.execute(window.captcha_key, {
-              action: 'zayavka'
-            }).then((token) => {
-              const data = new FormData(form);
-              data.append('g-recaptcha-response', token.toString());
-
-              $.ajax({
-                data,
-                url: '/ajax/zayavka.php',
-                type: 'post',
-                dataType: 'json',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success(respData) {
-                  window.dataLayer = window.dataLayer || [];
-                  window.dataLayer.push({
-                    'event': "gtm.usluga",
-                    'usluga': data.get('USLUGA')
-                  });
-                  if (respData.message) {
-                    alert(respData.message);
-                  }
-                },
-                complete() {
-                  $button.prop('disabled', false);
-                },
-                error: errorHandler,
-              });
-            }).catch(errorHandler);
-          });
-        } catch (e) {
-          errorHandler(e)
-        }
+      if (serviceName) {
+        $(`#${formID} [data-services="select"]`).val(serviceName).trigger('change');
       }
     });
-  });
+
+    $(`[data-ajax-form="${formID}"]`).each(function () {
+      $(this).validate({
+        errorPlacement() {
+          return true;
+        },
+        submitHandler(form) {
+          const $form = $(form);
+          const $button = $form.find('[type=submit]');
+          const errorHandler = (e) => {
+            console.error('zayavka', e);
+            const repeat = confirm('Ошибка! Что-то пошло не так. Повторить попытку?');
+            if (repeat) {
+              $form.trigger('submit');
+            }
+          };
+
+          $button.prop('disabled', true);
+
+          try {
+            grecaptcha.ready(() => {
+              grecaptcha.execute(window.captcha_key, {
+                action: 'zayavka'
+              }).then((token) => {
+                const data = new FormData(form);
+                data.append('g-recaptcha-response', token.toString());
+
+                $.ajax({
+                  data,
+                  url: '/ajax/zayavka.php',
+                  type: 'post',
+                  dataType: 'json',
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  success(respData) {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                      'event': "gtm.usluga",
+                      'usluga': data.get('USLUGA')
+                    });
+                    if (respData.message) {
+                      alert(respData.message);
+                    }
+                  },
+                  complete() {
+                    $button.prop('disabled', false);
+                  },
+                  error: errorHandler,
+                });
+              }).catch(errorHandler);
+            });
+          } catch (e) {
+            errorHandler(e)
+          }
+        }
+      });
+    });
+  })('request_form');
 });
