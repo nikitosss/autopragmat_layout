@@ -1,12 +1,27 @@
 @import '_settings';
 
-.apr-header {
-  @include media('mobile') {
-    background: #1E1E1E;
-    position: sticky;
-    top: 0;
-    z-index: 2;
+.apr-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  transform: translateY(0);
+  transition: transform .2s ease;
+
+  &--hide {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+
+    @include media('mobile') {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
+}
+
+.apr-header {
+  background: #1E1E1E;
+  border-bottom: 1px solid #414141;
 
   &__inner {
     display: flex;
@@ -114,20 +129,7 @@
 }
 
 .apr-nav {
-  background: #1E1E1E;
-  position: sticky;
-  top: 0;
-  z-index: 12;
-  border-bottom: 1px solid #414141;
-  transform: translateY(0);
-  transition: transform .2s ease;
   @include font(t3);
-
-  &--hide {
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-  }
 
   &__inner {
     display: flex;

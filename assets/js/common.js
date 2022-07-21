@@ -62,10 +62,14 @@ function expandInit() {
   });
 }
 
-function stickyInit() {
-  $(window).on('scroll', (e) => {
-    if (this.oldScroll < this.scrollY) $('.apr-nav').addClass('apr-nav--hide');
-    else $('.apr-nav').removeClass('apr-nav--hide');
+function stickyInit(className) {
+  $(window).on('scroll', () => {
+    const $el = $(`.${className}`);
+    const hideClassName = `${className}--hide`;
+
+    if (this.oldScroll < this.scrollY) $el.addClass(hideClassName);
+    else $el.removeClass(hideClassName);
+
     this.oldScroll = this.scrollY;
   });
 }
@@ -165,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   modalInit();
   scrollToInit();
   expandInit();
-  stickyInit();
+  stickyInit('apr-sticky');
   collapseInit();
   swiperInit('.apr-swiper');
   footerMapInit(document.getElementById('footer_map'));
