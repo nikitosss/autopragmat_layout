@@ -1,6 +1,6 @@
 @import '_settings';
 
-.apr-team {
+.apr-blog {
 
   &__title {
     text-align: center;
@@ -41,11 +41,11 @@
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
 
     @include media('tablet') {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
@@ -75,11 +75,13 @@
 
       img {
         width: 100%;
-        aspect-ratio: 288 / 300;
+        aspect-ratio: 398 / 240;
       }
     }
 
     &-desc {
+      position: relative;
+      margin-top: -38px;
       padding: 18px 14px 22px;
 
       @include media('tablet') {
@@ -87,18 +89,77 @@
       }
     }
 
-    &-name {
-      margin: 0 0 10px;
-      @include font(h3);
+    &-tag {
+      display: inline-block;
+      padding: 11px 20px;
+      color: #FFFFFF;
+      @include font(t3);
+      line-height: 1;
+    }
+
+    &-date {
+      margin-top: 10px;
+      @include font(t2);
 
       @include media('tablet') {
-        margin: 0 0 5px;
-        @include font(t4);
+        margin-top: 5px;
       }
     }
 
-    &-sub {
-      @include font(t2);
+    &-name {
+      margin-top: 10px;
+      @include font(h3);
+
+      @include media('tablet') {
+        margin-top: 5px;
+        @include font(t4);
+      }
+    }
+  }
+
+  &__other {
+    margin-top: 40px;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'title all'
+      'list list';
+
+    @include media('mobile') {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &-title {
+      grid-area: title;
+      margin: 0;
+      @include font(h1);
+
+      @include media('tablet') {
+        @include font(h2);
+      }
+
+      @include media('mobile') {
+        @include font(h3);
+      }
+    }
+
+    &-list {
+      grid-area: list;
+    }
+
+    &-all {
+      grid-area: all;
+      margin: auto 0 0 auto;
+
+      @include media('mobile') {
+        text-align: center;
+        width: 100%;
+        margin: 0;
+      }
     }
   }
 }

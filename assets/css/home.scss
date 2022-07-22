@@ -187,14 +187,13 @@
 
       &__caption {
         color: #FFFFFF;
-        line-height: 1.6;
-        font-size: 14px;
         position: absolute;
         top: 30px;
         left: 30px;
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.2s ease;
+        @include font(t2);
 
         div {
           font-size: 16px;
@@ -343,13 +342,13 @@
 
   &__title {
     @include font(h3);
-    line-height: 1.2;
     font-size: 26px;
+    line-height: 32px;
     margin: 0;
 
     @include media('mobile') {
-      line-height: 1.4;
       font-size: 22px;
+      line-height: 30px;
     }
   }
 
@@ -903,11 +902,10 @@
       gap: 5px;
       border: 1px solid #46A6FF;
       padding: 15px;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 1.5;
       min-width: 264px;
       margin-top: 25px;
+      @include font(t4);
+      font-weight: 500;
 
       span {
         white-space: nowrap;
@@ -1195,9 +1193,9 @@
   &__title {
     grid-area: title;
     font-family: 'Exo 2', sans-serif;
-    font-weight: 500;
     font-size: 30px;
-    line-height: 1.5;
+    line-height: 45px;
+    font-weight: 500;
     margin: 0;
     max-width: 500px;
 
@@ -1254,6 +1252,8 @@
       }
 
       &__pic {
+        font-size: 0;
+        line-height: 0;
         width: 100%;
         aspect-ratio: 400 / 172;
 
@@ -1705,9 +1705,8 @@
       }
 
       strong {
+        @include font(t4);
         font-weight: 500;
-        font-size: 18px;
-        line-height: 1.5;
       }
     }
 
@@ -1782,9 +1781,9 @@
 
   &__name {
     font-family: 'Exo 2', sans-serif;
-    font-weight: 500;
     font-size: 30px;
-    line-height: 1.5;
+    line-height: 45px;
+    font-weight: 500;
     margin: 40px 0 0 0;
 
     @include media('tablet') {
@@ -1804,9 +1803,8 @@
 
     @include media('tablet') {
       max-width: 80%;
+      @include font(t4);
       font-weight: 400;
-      font-size: 18px;
-      line-height: 1.50;
     }
 
     @include media('mobile') {
@@ -2049,9 +2047,9 @@
       &::before {
         flex-shrink: 0;
         content: "0" counter(apr-counter) " /";
-        font-weight: 700;
         font-size: 15px;
-        line-height: 1.6;
+        line-height: 24px;
+        font-weight: 700;
         color: #46A6FF;
         min-width: 2.2em;
       }

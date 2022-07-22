@@ -1,0 +1,55 @@
+.apr-share  {
+
+  &__title {
+    margin-bottom: 15px;
+  }
+
+  .ya-share2__badge {
+    background-color: transparent !important;
+  }
+
+  .ya-share2__list.ya-share2__list_direction_horizontal {
+    margin-top: 0 !important;
+  }
+
+  .ya-share2__container_size_m .ya-share2__badge .ya-share2__icon {
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    background-size: contain !important;
+  }
+
+  .ya-share2__list.ya-share2__list_direction_horizontal > .ya-share2__item {
+    margin: 0 !important;
+    margin-right: 18px !important;
+  }
+
+  .ya-share2__item_service_twitter .ya-share2__icon {
+    width: 30px !important;
+    height: 30px !important;
+    background-image: url(../img/tw.svg) !important;
+  }
+
+  .ya-share2__item_service_vkontakte .ya-share2__icon {
+    width: 30px!important;
+    height: 30px !important;
+    background-image: url(../img/vk2.svg) !important;
+  }
+
+  .ya-share2__item_service_telegram .ya-share2__icon {
+    width: 30px !important;
+    height: 30px !important;
+    background-image: url(../img/tg.svg) !important;
+  }
+
+  .ya-share2__item_service_facebook .ya-share2__badge, .ya-share2__item_service_telegram .ya-share2__mobile-popup-badge {
+    background-color: transparent !important;
+  }
+
+  .ya-share2__item_service_vkontakte .ya-share2__badge, .ya-share2__item_service_whatsapp .ya-share2__mobile-popup-badge {
+    background-color: transparent !important;
+  }
+
+  .ya-share2__item_service_telegram .ya-share2__badge, .ya-share2__item_service_telegram .ya-share2__mobile-popup-badge {
+    background-color: transparent !important;
+  }
+}
