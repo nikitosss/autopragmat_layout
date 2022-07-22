@@ -47,8 +47,10 @@ function scrollToInit() {
 
 function collapseInit() {
   $(document).on('click', '[data-collapse-item]', function() {
-    $(this).toggleClass('open');
-    $(this).find('.apr-second-screen__item-text').slideToggle('slow');
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      $(this).toggleClass('open');
+      $(this).find('.apr-second-screen__item-text').slideToggle('slow');
+    }
   });
 }
 
