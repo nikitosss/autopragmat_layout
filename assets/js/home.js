@@ -213,6 +213,13 @@ function checkingSwiperInit(selector) {
       },
     },
   });
+
+  $pagination.on('click', () => {
+    document.getElementById('checking_swiper').scrollIntoView({
+      block: 'center',
+      behavior: 'smooth',
+    });
+  });
 }
 
 function animateInit(selector) {
